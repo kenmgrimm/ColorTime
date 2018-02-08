@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F759202CB8D80013D318 /* AppDelegate.swift */; };
-		DF20F75C202CB8D80013D318 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F75B202CB8D80013D318 /* ViewController.swift */; };
 		DF20F75F202CB8D80013D318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF20F75D202CB8D80013D318 /* Main.storyboard */; };
 		DF20F761202CB8D80013D318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF20F760202CB8D80013D318 /* Assets.xcassets */; };
 		DF20F764202CB8D80013D318 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF20F762202CB8D80013D318 /* LaunchScreen.storyboard */; };
 		DF20F76F202CB8D80013D318 /* ColorTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F76E202CB8D80013D318 /* ColorTimeTests.swift */; };
 		DF20F77A202CB8D80013D318 /* ColorTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F779202CB8D80013D318 /* ColorTimeUITests.swift */; };
+		DF20F789202D02980013D318 /* PaintingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F788202D02980013D318 /* PaintingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		DF20F756202CB8D80013D318 /* ColorTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20F759202CB8D80013D318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF20F75B202CB8D80013D318 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DF20F75E202CB8D80013D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF20F760202CB8D80013D318 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF20F763202CB8D80013D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		DF20F775202CB8D80013D318 /* ColorTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20F779202CB8D80013D318 /* ColorTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTimeUITests.swift; sourceTree = "<group>"; };
 		DF20F77B202CB8D80013D318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF20F788202D02980013D318 /* PaintingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +97,9 @@
 		DF20F758202CB8D80013D318 /* ColorTime */ = {
 			isa = PBXGroup;
 			children = (
+				DF20F78C202D038B0013D318 /* View */,
+				DF20F787202D028A0013D318 /* Controller */,
 				DF20F759202CB8D80013D318 /* AppDelegate.swift */,
-				DF20F75B202CB8D80013D318 /* ViewController.swift */,
 				DF20F75D202CB8D80013D318 /* Main.storyboard */,
 				DF20F760202CB8D80013D318 /* Assets.xcassets */,
 				DF20F762202CB8D80013D318 /* LaunchScreen.storyboard */,
@@ -123,6 +124,21 @@
 				DF20F77B202CB8D80013D318 /* Info.plist */,
 			);
 			path = ColorTimeUITests;
+			sourceTree = "<group>";
+		};
+		DF20F787202D028A0013D318 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DF20F788202D02980013D318 /* PaintingController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DF20F78C202D038B0013D318 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF20F75C202CB8D80013D318 /* ViewController.swift in Sources */,
+				DF20F789202D02980013D318 /* PaintingController.swift in Sources */,
 				DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
