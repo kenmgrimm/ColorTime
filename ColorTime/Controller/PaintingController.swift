@@ -8,11 +8,14 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     
     print(#function)
 
+    
+//    let painting = Painting()
+//    print(PaintingFileService().load().first)
+    
     scrollView.delegate = self
     
     let imageView = PaintingImageView()
-    //    imageView.image = #imageLiteral(resourceName: "owls")
-    imageView.image = #imageLiteral(resourceName: "tiger")
+    imageView.image = #imageLiteral(resourceName: "owls")
     imageView.contentMode = .scaleAspectFit
     
     imageView.sizeToFit()  // Size the imageView to fit the image

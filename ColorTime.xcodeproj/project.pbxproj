@@ -15,6 +15,12 @@
 		DF20F77A202CB8D80013D318 /* ColorTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F779202CB8D80013D318 /* ColorTimeUITests.swift */; };
 		DF20F789202D02980013D318 /* PaintingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F788202D02980013D318 /* PaintingController.swift */; };
 		DF20F790202D198E0013D318 /* PaintingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F78F202D198E0013D318 /* PaintingImageView.swift */; };
+		DFB57B0D202E2DE9008C5A17 /* PaintingFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */; };
+		DFB57B13202E2F21008C5A17 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B11202E2F21008C5A17 /* Painting.swift */; };
+		DFB57B14202E2F21008C5A17 /* PaintPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B12202E2F21008C5A17 /* PaintPoint.swift */; };
+		DFB57B18202E2F6B008C5A17 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B17202E2F6B008C5A17 /* FileService.swift */; };
+		DFB57B1D202E2F9A008C5A17 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B1A202E2F9A008C5A17 /* UIColor.swift */; };
+		DFB57B1E202E2F9A008C5A17 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B1B202E2F9A008C5A17 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		DF20F77B202CB8D80013D318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF20F788202D02980013D318 /* PaintingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingController.swift; sourceTree = "<group>"; };
 		DF20F78F202D198E0013D318 /* PaintingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingImageView.swift; sourceTree = "<group>"; };
+		DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingFileService.swift; sourceTree = "<group>"; };
+		DFB57B11202E2F21008C5A17 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		DFB57B12202E2F21008C5A17 /* PaintPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintPoint.swift; sourceTree = "<group>"; };
+		DFB57B17202E2F6B008C5A17 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		DFB57B1A202E2F9A008C5A17 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		DFB57B1B202E2F9A008C5A17 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,9 @@
 		DF20F758202CB8D80013D318 /* ColorTime */ = {
 			isa = PBXGroup;
 			children = (
+				DFB57B19202E2F90008C5A17 /* Extension */,
+				DFB57B0B202E2DD3008C5A17 /* Service */,
+				DFB57B07202E2BEA008C5A17 /* Model */,
 				DF20F78C202D038B0013D318 /* View */,
 				DF20F787202D028A0013D318 /* Controller */,
 				DF20F759202CB8D80013D318 /* AppDelegate.swift */,
@@ -142,6 +157,33 @@
 				DF20F78F202D198E0013D318 /* PaintingImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DFB57B07202E2BEA008C5A17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFB57B11202E2F21008C5A17 /* Painting.swift */,
+				DFB57B12202E2F21008C5A17 /* PaintPoint.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DFB57B0B202E2DD3008C5A17 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */,
+				DFB57B17202E2F6B008C5A17 /* FileService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DFB57B19202E2F90008C5A17 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DFB57B1A202E2F9A008C5A17 /* UIColor.swift */,
+				DFB57B1B202E2F9A008C5A17 /* UIImage.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +321,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF20F789202D02980013D318 /* PaintingController.swift in Sources */,
+				DFB57B18202E2F6B008C5A17 /* FileService.swift in Sources */,
+				DFB57B14202E2F21008C5A17 /* PaintPoint.swift in Sources */,
 				DF20F790202D198E0013D318 /* PaintingImageView.swift in Sources */,
+				DFB57B13202E2F21008C5A17 /* Painting.swift in Sources */,
+				DFB57B1D202E2F9A008C5A17 /* UIColor.swift in Sources */,
+				DFB57B1E202E2F9A008C5A17 /* UIImage.swift in Sources */,
 				DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */,
+				DFB57B0D202E2DE9008C5A17 /* PaintingFileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
