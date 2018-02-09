@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YmW-Oe-6LZ">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8kt-ow-c03">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,14 +16,14 @@
             <objects>
                 <viewController title="Paintings" id="BYZ-38-t0r" customClass="ViewController" customModule="ColorTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cky-FN-rWd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkt-6c-eTy" userLabel="Paintings Area">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="32" width="736" height="338"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fUO-Ma-SJa">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="736" height="338"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wAu-kM-xeC">
                                             <size key="itemSize" width="100" height="100"/>
@@ -47,7 +47,7 @@
                                                     </subviews>
                                                 </view>
                                                 <connections>
-                                                    <segue destination="YmW-Oe-6LZ" kind="show" id="W2P-lP-Wtm"/>
+                                                    <segue destination="8kt-ow-c03" kind="show" id="W2P-lP-Wtm"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lW2-sS-VCN">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="370" width="736" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="V3f-mL-Qyx"/>
                                 </constraints>
@@ -95,7 +95,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m0Z-GQ-3Vv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rph-mV-bUn">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -112,26 +112,38 @@
             <objects>
                 <viewController title="Painting" id="YmW-Oe-6LZ" customClass="PaintingController" customModule="ColorTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R3R-Om-jpU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xCQ-5T-WyV">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="32" width="736" height="382"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="ygN-a2-bSA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="522"/>
-                                    </scrollView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgW-uD-jYq">
+                                        <rect key="frame" x="0.0" y="0.0" width="586" height="382"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="ygN-a2-bSA">
+                                                <rect key="frame" x="8" y="8" width="570" height="366"/>
+                                            </scrollView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="ygN-a2-bSA" firstAttribute="top" secondItem="SgW-uD-jYq" secondAttribute="top" constant="8" id="9x9-f6-O4x"/>
+                                            <constraint firstItem="ygN-a2-bSA" firstAttribute="leading" secondItem="SgW-uD-jYq" secondAttribute="leading" constant="8" id="COb-z3-upa"/>
+                                            <constraint firstAttribute="trailing" secondItem="ygN-a2-bSA" secondAttribute="trailing" constant="8" id="Drk-Mg-03o"/>
+                                            <constraint firstAttribute="bottom" secondItem="ygN-a2-bSA" secondAttribute="bottom" constant="8" id="Wxe-aB-pGN"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-mx-Obs" userLabel="Controls View">
-                                        <rect key="frame" x="0.0" y="522" width="414" height="150"/>
+                                        <rect key="frame" x="586" y="0.0" width="150" height="382"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbS-Q5-TbT">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                                <rect key="frame" x="10" y="10" width="130" height="362"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZU-rb-67U" userLabel="Palette">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colorWheel" translatesAutoresizingMaskIntoConstraints="NO" id="mnF-OQ-HLS" userLabel="Palette Wheel">
-                                                                <rect key="frame" x="4" y="46" width="100" height="100"/>
+                                                                <rect key="frame" x="26" y="4" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="COb-9Q-pkj"/>
                                                                     <constraint firstAttribute="width" constant="100" id="Qfx-KQ-m8F"/>
@@ -154,7 +166,7 @@
                                                                 <exclude reference="nim-fQ-K4Q"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=compact-widthClass=regular">
+                                                        <variation key="heightClass=compact">
                                                             <mask key="constraints">
                                                                 <exclude reference="7ev-cr-iI9"/>
                                                                 <include reference="Ty0-5y-fTA"/>
@@ -166,10 +178,10 @@
                                                         </variation>
                                                     </view>
                                                     <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jGr-9S-8Ej" userLabel="Palette History">
-                                                        <rect key="frame" x="120" y="0.0" width="244" height="150"/>
+                                                        <rect key="frame" x="0.0" y="120" width="130" height="192"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-JL-hi3">
-                                                                <rect key="frame" x="8" y="8" width="228" height="134"/>
+                                                                <rect key="frame" x="8" y="8" width="114" height="176"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y6j-cy-wVX">
                                                                     <size key="itemSize" width="25" height="25"/>
@@ -205,19 +217,19 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jb2-xp-AIa" userLabel="Control Buttons">
-                                                        <rect key="frame" x="364" y="0.0" width="50" height="150"/>
+                                                        <rect key="frame" x="0.0" y="312" width="130" height="50"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="scc-2M-2BF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="150"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="50"/>
                                                                 <subviews>
                                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="undo" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-uL-3zu">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="71"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="61" height="50"/>
                                                                     </imageView>
                                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="FYg-Bn-5an">
-                                                                        <rect key="frame" x="0.0" y="79" width="50" height="71"/>
+                                                                        <rect key="frame" x="69" y="0.0" width="61" height="50"/>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                                                                <variation key="heightClass=compact" axis="horizontal"/>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,7 +246,7 @@
                                                                 <exclude reference="xfO-e6-FT9"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=compact-widthClass=regular">
+                                                        <variation key="heightClass=compact">
                                                             <mask key="constraints">
                                                                 <exclude reference="lgb-T6-rWM"/>
                                                                 <include reference="xfO-e6-FT9"/>
@@ -251,24 +263,24 @@
                                                         <exclude reference="CYH-Dc-Nb3"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
+                                                <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="jbS-Q5-TbT" firstAttribute="leading" secondItem="1cu-mx-Obs" secondAttribute="leading" id="bCl-aK-iHz"/>
-                                            <constraint firstAttribute="bottom" secondItem="jbS-Q5-TbT" secondAttribute="bottom" id="hFB-6c-Bdb"/>
-                                            <constraint firstItem="jbS-Q5-TbT" firstAttribute="top" secondItem="1cu-mx-Obs" secondAttribute="top" id="hkZ-CS-wxN"/>
+                                            <constraint firstItem="jbS-Q5-TbT" firstAttribute="top" secondItem="1cu-mx-Obs" secondAttribute="top" constant="10" id="QFh-6F-3fO"/>
                                             <constraint firstAttribute="height" constant="150" id="lUb-wm-9Cr"/>
                                             <constraint firstAttribute="width" constant="150" id="tH8-wM-lLi"/>
-                                            <constraint firstAttribute="trailing" secondItem="jbS-Q5-TbT" secondAttribute="trailing" id="zg6-dB-6Dq"/>
+                                            <constraint firstItem="jbS-Q5-TbT" firstAttribute="leading" secondItem="1cu-mx-Obs" secondAttribute="leading" constant="10" id="wUO-Af-oqW"/>
+                                            <constraint firstAttribute="bottom" secondItem="jbS-Q5-TbT" secondAttribute="bottom" constant="10" id="yQI-US-kxx"/>
+                                            <constraint firstAttribute="trailing" secondItem="jbS-Q5-TbT" secondAttribute="trailing" constant="10" id="ydG-lX-DCp"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="tH8-wM-lLi"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=compact-widthClass=regular">
+                                        <variation key="heightClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="lUb-wm-9Cr"/>
                                                 <include reference="tH8-wM-lLi"/>
@@ -277,9 +289,10 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ygN-a2-bSA" firstAttribute="top" secondItem="xCQ-5T-WyV" secondAttribute="top" id="EZP-rr-s5O"/>
+                                    <constraint firstItem="SgW-uD-jYq" firstAttribute="leading" secondItem="xCQ-5T-WyV" secondAttribute="leading" id="fYC-st-Ogf"/>
+                                    <constraint firstItem="SgW-uD-jYq" firstAttribute="top" secondItem="xCQ-5T-WyV" secondAttribute="top" id="lh1-oT-aaK"/>
                                 </constraints>
-                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                                <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -306,7 +319,25 @@
                     <viewLayoutGuide key="safeArea" id="lfG-2z-tXG"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1244.9275362318842" y="132.88043478260872"/>
+            <point key="canvasLocation" x="1349" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cqz-DL-p1k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8kt-ow-c03" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oNp-Dz-edx">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YmW-Oe-6LZ" kind="relationship" relationship="rootViewController" id="zi4-Xw-ah3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8e-MM-Xk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1348" y="-630"/>
         </scene>
     </scenes>
     <resources>
