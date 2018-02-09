@@ -10,7 +10,7 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
 
     
 //    let painting = Painting()
-//    print(PaintingFileService().load().first)
+    print(PaintingFileService().load().first)
     
     scrollView.delegate = self
     

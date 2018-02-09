@@ -6,6 +6,11 @@ protocol PaintingServiceProtocol {
 }
 
 class PaintingFileService : PaintingServiceProtocol {
+  func create() -> Painting {
+    print("Creating painting with id of 0!")
+    return Painting(paintingId: 0)
+  }
+  
   func load() -> [Painting] {
     let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
     print("\(#function) - Loading: \(url.absoluteString)")
@@ -16,8 +21,8 @@ class PaintingFileService : PaintingServiceProtocol {
       
       return try decoder.decode([Painting].self, from: data)
     } catch {
-      return [Painting(colorPaletteHistory: [], paintPointHistory: [])]
-      //      fatalError(error.localizedDescription)
+//      return [Painting(paintingId: 0)]
+      fatalError(error.localizedDescription)
     }
   }
   

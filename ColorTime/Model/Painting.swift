@@ -3,11 +3,16 @@ import UIKit
 struct Painting : Codable {
   static let ColorUpdateNotification = "ColorUpdateNotification"
 
-  let pageId: Int = 0
-  let originalImageURL = FileService.getDocumentsURL().appendingPathComponent("painting_0.png")
+  let paintingId: Int
+  var originalImageURL: URL
 
-  private(set) var colorPaletteHistory : [Int]
-  var paintPointHistory : [PaintPoint] = []
+  private(set) var colorPaletteHistory = [Int]()
+  var paintPointHistory = [PaintPoint]()
+  
+  init(paintingId: Int) {
+    self.paintingId = paintingId
+    self.originalImageURL = FileService.getDocumentsURL().appendingPathComponent("painting_\(paintingId).png")
+  }
   
   mutating func addColorToPalette(_ color: UIColor) {
     guard let colorRgb = color.rgb() else { return }
