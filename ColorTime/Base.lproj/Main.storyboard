@@ -42,7 +42,7 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Bv-uD-egC">
                                                             <rect key="frame" x="-70" y="-14" width="240" height="128"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.99690271229664451" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.99690271229664451" green="1" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
                                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PJg-JJ-eDx" userLabel="Spinner">
                                                             <rect key="frame" x="40" y="40" width="20" height="20"/>
@@ -50,6 +50,7 @@
                                                         </activityIndicatorView>
                                                     </subviews>
                                                 </view>
+                                                <color key="backgroundColor" red="0.97276576033180162" green="1" blue="0.030842659261415939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="imageView" destination="4Bv-uD-egC" id="yuX-mU-2FE"/>
                                                     <outlet property="spinner" destination="PJg-JJ-eDx" id="PzT-hP-fzv"/>

@@ -22,8 +22,9 @@ class PaintingFileService : PaintingServiceProtocol {
       return try decoder.decode([Painting].self, from: data)
     } catch {
 //      return [Painting(paintingId: 0)]
-      fatalError(error.localizedDescription)
+//      fatalError(error.localizedDescription)
     }
+    return []
   }
   
   func save(_ painting: Painting) {

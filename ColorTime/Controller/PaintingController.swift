@@ -15,7 +15,7 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     scrollView.delegate = self
     
     let imageView = PaintingImageView()
-    imageView.image = #imageLiteral(resourceName: "owls")
+    imageView.image = UIImage(fileURL: (PaintingFileService().load().first?.originalImageURL)!)
     imageView.contentMode = .scaleAspectFit
     
     imageView.sizeToFit()  // Size the imageView to fit the image

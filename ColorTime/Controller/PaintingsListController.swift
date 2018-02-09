@@ -27,9 +27,8 @@ extension PaintingsListController : UICollectionViewDelegate {
     
     let painting = PaintingFileService().load()[indexPath.row]
     
-    let imageView = paintingCell.imageView!
-    
-    imageView.image = PaintingsListController.imageFromFile(filePath: painting.originalImageURL)
+    paintingCell.update(with: UIImage(fileURL: painting.originalImageURL))
+
 //    let photo = photoDataSource.photos[indexPath.row]
 //
 //    store.fetchImage(for: photo, completion: { (result) -> Void in
@@ -96,18 +95,6 @@ extension PaintingsListController {
     self.present(imagePicker, animated: true, completion: nil)
   }
   
-  private static func imageFromFile(filePath: URL) -> UIImage? {
-    do {
-      let imageData = try Data(contentsOf: filePath)
-      
-      return UIImage(data: imageData)
-    }
-    catch {
-      print("Error loading image : \(error)")
-    }
-    return nil
-  }
-  
   private func filterImage(_ image: UIImage) -> UIImage {
     let ciImage = CoreImage.CIImage(cgImage: image.cgImage!)
     let filter = CIFilter(name: "CILineOverlay",
@@ -124,7 +111,12 @@ extension PaintingsListController {
     let context = CIContext(options:nil)
     let outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
     
-    return UIImage(cgImage: outputCiImage!)
+    let outputImage = UIImage(cgImage: outputCiImage!)
+    
+    // Doesn't seem to work!?!?!?!?!
+    let opaqueImage = outputImage.updateAlpha(1)!
+    
+    return opaqueImage
   }
 }
 

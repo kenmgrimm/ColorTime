@@ -154,7 +154,6 @@
 			children = (
 				DF20F788202D02980013D318 /* PaintingController.swift */,
 				DFB57B20202E320F008C5A17 /* PaintingsListController.swift */,
-				DFB57B22202E4791008C5A17 /* PaintingDataSource.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +179,7 @@
 		DFB57B0B202E2DD3008C5A17 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DFB57B22202E4791008C5A17 /* PaintingDataSource.swift */,
 				DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */,
 				DFB57B17202E2F6B008C5A17 /* FileService.swift */,
 			);

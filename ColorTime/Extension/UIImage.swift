@@ -2,6 +2,18 @@ import UIKit
 
 extension UIImage {
   
+  convenience init?(fileURL: URL) {
+    do {
+      let imageData = try Data(contentsOf: fileURL)
+      
+      self.init(data: imageData)
+    }
+    catch {
+      print("Error loading image : \(error)")
+      return nil
+    }
+  }
+  
   // Not sure why yet but this method works on the palette but not the full image.
   //   getColorAt that I put into PaintBucket works on the full image but is incorrect for the palette
   func getPixelColor(atLocation location: CGPoint, withFrameSize size: CGSize) -> UIColor {
@@ -21,5 +33,14 @@ extension UIImage {
     let a = CGFloat(data[pixelIndex+3]) / CGFloat(255.0)
     
     return UIColor(red: r, green: g, blue: b, alpha: a)
+  }
+
+  func updateAlpha(_ alpha: CGFloat) -> UIImage? {
+    UIGraphicsBeginImageContextWithOptions(size, false, scale)
+    draw(at: .zero, blendMode: .normal, alpha: alpha)
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return newImage
   }
 }
