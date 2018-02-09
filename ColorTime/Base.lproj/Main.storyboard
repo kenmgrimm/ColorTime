@@ -14,7 +14,7 @@
         <!--Paintings-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Paintings" id="BYZ-38-t0r" customClass="ViewController" customModule="ColorTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Paintings" id="BYZ-38-t0r" customClass="PaintingsListController" customModule="ColorTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cky-FN-rWd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,7 +67,11 @@
                                     <constraint firstAttribute="height" constant="44" id="V3f-mL-Qyx"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="UJo-1s-Lmk"/>
+                                    <barButtonItem systemItem="camera" id="UJo-1s-Lmk">
+                                        <connections>
+                                            <action selector="takePhoto:" destination="BYZ-38-t0r" id="JDG-mD-F0Y"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

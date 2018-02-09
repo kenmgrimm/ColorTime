@@ -21,6 +21,7 @@
 		DFB57B18202E2F6B008C5A17 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B17202E2F6B008C5A17 /* FileService.swift */; };
 		DFB57B1D202E2F9A008C5A17 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B1A202E2F9A008C5A17 /* UIColor.swift */; };
 		DFB57B1E202E2F9A008C5A17 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B1B202E2F9A008C5A17 /* UIImage.swift */; };
+		DFB57B21202E320F008C5A17 /* PaintingsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B20202E320F008C5A17 /* PaintingsListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		DFB57B17202E2F6B008C5A17 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		DFB57B1A202E2F9A008C5A17 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		DFB57B1B202E2F9A008C5A17 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		DFB57B20202E320F008C5A17 /* PaintingsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingsListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				DF20F788202D02980013D318 /* PaintingController.swift */,
+				DFB57B20202E320F008C5A17 /* PaintingsListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				DFB57B14202E2F21008C5A17 /* PaintPoint.swift in Sources */,
 				DF20F790202D198E0013D318 /* PaintingImageView.swift in Sources */,
 				DFB57B13202E2F21008C5A17 /* Painting.swift in Sources */,
+				DFB57B21202E320F008C5A17 /* PaintingsListController.swift in Sources */,
 				DFB57B1D202E2F9A008C5A17 /* UIColor.swift in Sources */,
 				DFB57B1E202E2F9A008C5A17 /* UIImage.swift in Sources */,
 				DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */,
