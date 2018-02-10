@@ -50,11 +50,11 @@
                                                         </activityIndicatorView>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" red="0.97276576033180162" green="1" blue="0.030842659261415939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.80428727913526055" green="0.90958615917642927" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="imageView" destination="4Bv-uD-egC" id="yuX-mU-2FE"/>
                                                     <outlet property="spinner" destination="PJg-JJ-eDx" id="PzT-hP-fzv"/>
-                                                    <segue destination="8kt-ow-c03" kind="show" id="W2P-lP-Wtm"/>
+                                                    <segue destination="8kt-ow-c03" kind="show" identifier="painting" id="W2P-lP-Wtm"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -133,10 +133,10 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgW-uD-jYq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="522"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="552"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="ygN-a2-bSA">
-                                                <rect key="frame" x="8" y="8" width="398" height="506"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="536"/>
                                             </scrollView>
                                         </subviews>
                                         <constraints>
@@ -147,16 +147,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-mx-Obs" userLabel="Controls View">
-                                        <rect key="frame" x="0.0" y="522" width="414" height="150"/>
+                                        <rect key="frame" x="0.0" y="552" width="414" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbS-Q5-TbT">
-                                                <rect key="frame" x="10" y="10" width="394" height="130"/>
+                                                <rect key="frame" x="10" y="10" width="394" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZU-rb-67U" userLabel="Palette">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="130"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colorWheel" translatesAutoresizingMaskIntoConstraints="NO" id="mnF-OQ-HLS" userLabel="Palette Wheel">
-                                                                <rect key="frame" x="4" y="26" width="100" height="100"/>
+                                                                <rect key="frame" x="4" y="-4" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="COb-9Q-pkj"/>
                                                                     <constraint firstAttribute="width" constant="100" id="Qfx-KQ-m8F"/>
@@ -191,10 +191,10 @@
                                                         </variation>
                                                     </view>
                                                     <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jGr-9S-8Ej" userLabel="Palette History">
-                                                        <rect key="frame" x="120" y="0.0" width="224" height="130"/>
+                                                        <rect key="frame" x="120" y="0.0" width="224" height="100"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-JL-hi3">
-                                                                <rect key="frame" x="8" y="8" width="208" height="114"/>
+                                                                <rect key="frame" x="8" y="8" width="208" height="84"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y6j-cy-wVX">
                                                                     <size key="itemSize" width="25" height="25"/>
@@ -230,16 +230,16 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jb2-xp-AIa" userLabel="Control Buttons">
-                                                        <rect key="frame" x="344" y="0.0" width="50" height="130"/>
+                                                        <rect key="frame" x="344" y="0.0" width="50" height="100"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="scc-2M-2BF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="130"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
                                                                 <subviews>
                                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="undo" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-uL-3zu">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="61"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="46"/>
                                                                     </imageView>
                                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="FYg-Bn-5an">
-                                                                        <rect key="frame" x="0.0" y="69" width="50" height="61"/>
+                                                                        <rect key="frame" x="0.0" y="54" width="50" height="46"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <variation key="heightClass=compact" axis="horizontal"/>
@@ -279,10 +279,9 @@
                                                 <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="jbS-Q5-TbT" firstAttribute="top" secondItem="1cu-mx-Obs" secondAttribute="top" constant="10" id="QFh-6F-3fO"/>
-                                            <constraint firstAttribute="height" constant="150" id="lUb-wm-9Cr"/>
+                                            <constraint firstAttribute="height" constant="120" id="lUb-wm-9Cr"/>
                                             <constraint firstAttribute="width" constant="150" id="tH8-wM-lLi"/>
                                             <constraint firstItem="jbS-Q5-TbT" firstAttribute="leading" secondItem="1cu-mx-Obs" secondAttribute="leading" constant="10" id="wUO-Af-oqW"/>
                                             <constraint firstAttribute="bottom" secondItem="jbS-Q5-TbT" secondAttribute="bottom" constant="10" id="yQI-US-kxx"/>
@@ -318,7 +317,11 @@
                         <viewLayoutGuide key="safeArea" id="LF5-bk-tCt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Painting" id="flg-Bw-eEs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="kSX-e1-rEI"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="kSX-e1-rEI">
+                            <connections>
+                                <action selector="done" destination="YmW-Oe-6LZ" id="Y1S-Kb-S6T"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="ygN-a2-bSA" id="xR2-oR-IyM"/>

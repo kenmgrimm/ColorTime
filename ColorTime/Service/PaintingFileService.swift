@@ -1,7 +1,8 @@
 import Foundation
 
 protocol PaintingServiceProtocol {
-  func load() -> [Painting]
+  func all() -> [Painting]
+  func find(paintingId: Int) -> Painting?
   func save(_ painting: Painting)
 }
 
@@ -11,7 +12,7 @@ class PaintingFileService : PaintingServiceProtocol {
     return Painting(paintingId: 0)
   }
   
-  func load() -> [Painting] {
+  func all() -> [Painting] {
     let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
     print("\(#function) - Loading: \(url.absoluteString)")
     
@@ -25,6 +26,12 @@ class PaintingFileService : PaintingServiceProtocol {
 //      fatalError(error.localizedDescription)
     }
     return []
+  }
+  
+  func find(paintingId: Int) -> Painting? {
+    return all().first(where: { (painting) -> Bool in
+      painting.paintingId == paintingId
+    })
   }
   
   func save(_ painting: Painting) {

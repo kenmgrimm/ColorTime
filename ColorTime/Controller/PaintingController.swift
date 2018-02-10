@@ -2,20 +2,28 @@ import UIKit
 
 class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet var scrollView: UIScrollView!
+  
+  var painting: Painting!
+
+  @IBAction func done() {
+    save()
+    
+    navigationController?.popViewController(animated: true)
+    
+    dismiss(animated: true, completion: nil)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
     print(#function)
 
-    
-//    let painting = Painting()
-    print(PaintingFileService().load().first)
+    print(Services.paintingService.all().first as Any)
     
     scrollView.delegate = self
     
     let imageView = PaintingImageView()
-    imageView.image = UIImage(fileURL: (PaintingFileService().load().first?.originalImageURL)!)
+    imageView.image = UIImage(fileURL: (painting.originalImageURL))
     imageView.contentMode = .scaleAspectFit
     
     imageView.sizeToFit()  // Size the imageView to fit the image
@@ -51,13 +59,9 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     //    scrollView.contentOffset = CGPoint(x: -20, y: -20)
   }
   
-//  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//    print("\(#function): \(size)")
-//  }
-//  
-//  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//    print("\(#function): \(previousTraitCollection?.verticalSizeClass == .compact), \(previousTraitCollection?.horizontalSizeClass == .compact)")
-//  }
+  private func save() {
+    
+  }
 }
 
 extension PaintingController : UIScrollViewDelegate {

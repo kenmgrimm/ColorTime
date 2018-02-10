@@ -5,8 +5,8 @@ class PaintingDataSource: NSObject, UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     print(#function)
-    print(PaintingFileService().load().count)
-    return PaintingFileService().load().count
+    print(Services.paintingService.all().count)
+    return Services.paintingService.all().count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

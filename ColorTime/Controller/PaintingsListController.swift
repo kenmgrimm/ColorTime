@@ -3,8 +3,9 @@ import UIKit
 class PaintingsListController: UIViewController {
   @IBOutlet var collectionView: UICollectionView!
   
+  // Must hold strong reference to data source as the collectionView.dataSource is weak..
   private let collectionDataSource = PaintingDataSource()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -21,11 +22,10 @@ class PaintingsListController: UIViewController {
 
 // Paintings list related
 extension PaintingsListController : UICollectionViewDelegate {
-
   func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     let paintingCell = cell as! PaintingCollectionViewCell
     
-    let painting = PaintingFileService().load()[indexPath.row]
+    let painting = Services.paintingService.find(paintingId: indexPath.row)!
     
     paintingCell.update(with: UIImage(fileURL: painting.originalImageURL))
 
@@ -47,18 +47,19 @@ extension PaintingsListController : UICollectionViewDelegate {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    switch segue.identifier {
-//    case "showPhoto"?:
-//      if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
-//        let photo = photoDataSource.photos[selectedIndexPath.row]
-//
-//        let destinationVC = segue.destination as! PhotoInfoViewController
-//        destinationVC.photo = photo
-//        destinationVC.store = store
-//      }
-//    default:
-//      preconditionFailure("Unexpected segue identifier")
-//    }
+    switch segue.identifier {
+    case "painting"?:
+      if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+        let painting = Services.paintingService.find(paintingId: selectedIndexPath.row)
+
+        let destNavController = segue.destination as! UINavigationController
+        let paintingController = destNavController.topViewController as! PaintingController
+        
+        paintingController.painting = painting
+      }
+    default:
+      preconditionFailure("Unexpected segue identifier")
+    }
   }
   
   private func updateDataSource() {
@@ -77,15 +78,8 @@ extension PaintingsListController : UICollectionViewDelegate {
 // Camera processing / Photo-related
 extension PaintingsListController {
   @IBAction func takePhoto(_ sender: AnyObject) {
-    let sourceType: UIImagePickerControllerSourceType!
-    
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      sourceType = .camera
-    }
-    else if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-      sourceType = .photoLibrary
-    }
-    else {
+    guard let sourceType = firstSourceTypeAvailable() else {
+      print("No photo sources available")
       return
     }
     
@@ -93,6 +87,14 @@ extension PaintingsListController {
     imagePicker.sourceType = sourceType
     imagePicker.delegate = self
     self.present(imagePicker, animated: true, completion: nil)
+  }
+  
+  private func firstSourceTypeAvailable() -> UIImagePickerControllerSourceType? {
+    let sourceTypes: [UIImagePickerControllerSourceType] = [.camera, .photoLibrary]
+    
+    return sourceTypes.first(where: { (sourceType) -> Bool  in
+      return UIImagePickerController.isSourceTypeAvailable(sourceType)
+    })
   }
   
   private func filterImage(_ image: UIImage) -> UIImage {
@@ -114,7 +116,7 @@ extension PaintingsListController {
     let outputImage = UIImage(cgImage: outputCiImage!)
     
     // Doesn't seem to work!?!?!?!?!
-    let opaqueImage = outputImage.updateAlpha(1)!
+    let opaqueImage = outputImage.withAlpha(1)!
     
     return opaqueImage
   }

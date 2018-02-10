@@ -35,8 +35,8 @@ extension UIImage {
     return UIColor(red: r, green: g, blue: b, alpha: a)
   }
 
-  func updateAlpha(_ alpha: CGFloat) -> UIImage? {
-    UIGraphicsBeginImageContextWithOptions(size, false, scale)
+  func withAlpha(_ alpha: CGFloat) -> UIImage? {
+    UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
     draw(at: .zero, blendMode: .normal, alpha: alpha)
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
