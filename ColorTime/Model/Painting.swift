@@ -21,3 +21,13 @@ struct Painting : Codable {
     colorPaletteHistory.append(colorRgb)
   }
 }
+
+extension Painting : Hashable {
+  var hashValue: Int {
+    return self.paintingId
+  }
+  
+  static func ==(lhs: Painting, rhs: Painting) -> Bool {
+    return lhs.paintingId == rhs.paintingId
+  }
+}

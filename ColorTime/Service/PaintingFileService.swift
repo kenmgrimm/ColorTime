@@ -1,18 +1,21 @@
 import Foundation
 
 protocol PaintingServiceProtocol {
-  func all() -> [Painting]
+  func all() -> Set<Painting>
   func find(paintingId: Int) -> Painting?
   func save(_ painting: Painting)
 }
 
 class PaintingFileService : PaintingServiceProtocol {
   func create() -> Painting {
-    print("Creating painting with id of 0!")
-    return Painting(paintingId: 0)
+    let highestPaintingId = all().sorted(by: { (a, b) -> Bool in
+      a.paintingId > b.paintingId
+    }).last?.paintingId ?? -1
+    
+    return Painting(paintingId: highestPaintingId + 1)
   }
   
-  func all() -> [Painting] {
+  func all() -> Set<Painting> {
     let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
     print("\(#function) - Loading: \(url.absoluteString)")
     
@@ -20,12 +23,12 @@ class PaintingFileService : PaintingServiceProtocol {
     do {
       let data = try Data(contentsOf: url, options: [])
       
-      return try decoder.decode([Painting].self, from: data)
-    } catch {
-//      return [Painting(paintingId: 0)]
-//      fatalError(error.localizedDescription)
+      return try Set(decoder.decode([Painting].self, from: data))
+    } catch  {
+      print(#function + " - paintings data file not found or corrupt")
     }
-    return []
+    
+    return Set<Painting>()
   }
   
   func find(paintingId: Int) -> Painting? {
@@ -40,8 +43,12 @@ class PaintingFileService : PaintingServiceProtocol {
     
     let encoder = JSONEncoder()
     
+    var paintings = all()
+    
+    paintings.insert(painting)
+    
     do {
-      let data = try encoder.encode([painting])
+      let data = try encoder.encode(paintings)
       try data.write(to: url, options: [])
       
       NotificationCenter.default.post(name:

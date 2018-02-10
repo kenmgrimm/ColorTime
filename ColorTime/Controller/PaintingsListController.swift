@@ -18,6 +18,34 @@ class PaintingsListController: UIViewController {
     //      self.updateDataSource()
     //    }
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.identifier {
+    case "painting"?:
+      if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+        let painting = Services.paintingService.find(paintingId: selectedIndexPath.row)
+        
+        let destNavController = segue.destination as! UINavigationController
+        let paintingController = destNavController.topViewController as! PaintingController
+        
+        paintingController.painting = painting
+      }
+    default:
+      preconditionFailure("Unexpected segue identifier")
+    }
+  }
+  
+  private func updateDataSource() {
+    //    store.fetchAllPhotos(completion: { (photoResult) in
+    //      switch photoResult {
+    //      case let .success(photos):
+    //        self.photoDataSource.photos = photos
+    //      case .failure:
+    //        self.photoDataSource.photos.removeAll()
+    //      }
+    //      self.collectionView.reloadSections(IndexSet(integer: 0))
+    //    })
+  }
 }
 
 // Paintings list related
@@ -43,34 +71,6 @@ extension PaintingsListController : UICollectionViewDelegate {
 //      if let cell = self.collectionView.cellForItem(at: photoIndexPath) as? PhotoCollectionViewCell {
 //        cell.update(with: image)
 //      }
-//    })
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    switch segue.identifier {
-    case "painting"?:
-      if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
-        let painting = Services.paintingService.find(paintingId: selectedIndexPath.row)
-
-        let destNavController = segue.destination as! UINavigationController
-        let paintingController = destNavController.topViewController as! PaintingController
-        
-        paintingController.painting = painting
-      }
-    default:
-      preconditionFailure("Unexpected segue identifier")
-    }
-  }
-  
-  private func updateDataSource() {
-//    store.fetchAllPhotos(completion: { (photoResult) in
-//      switch photoResult {
-//      case let .success(photos):
-//        self.photoDataSource.photos = photos
-//      case .failure:
-//        self.photoDataSource.photos.removeAll()
-//      }
-//      self.collectionView.reloadSections(IndexSet(integer: 0))
 //    })
   }
 }
@@ -126,7 +126,7 @@ extension PaintingsListController : UIImagePickerControllerDelegate, UINavigatio
   @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     
-    let newPainting = PaintingFileService().create()
+    let newPainting = Services.paintingService.create()
     let filename = newPainting.originalImageURL
     
     let filteredImage = filterImage(pickedImage)
