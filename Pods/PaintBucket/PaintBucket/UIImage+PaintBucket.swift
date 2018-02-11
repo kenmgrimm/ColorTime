@@ -10,15 +10,24 @@ import UIKit
 
 public extension UIImage {
     
-    @objc public func pbk_imageByReplacingColorAt(_ x: Int, _ y: Int, withColor: UIColor, tolerance: Int, antialias: Bool = false) -> UIImage {
-        let point = (x, y)
-        let imageBuffer = ImageBuffer(image: self.cgImage!)
-        let index = imageBuffer.indexFrom(x, y)
-        let pixel = imageBuffer[index]
-        let replacementPixel = Pixel(color: withColor)
-        imageBuffer.scanline_replaceColor(pixel, startingAtPoint: point, withColor: replacementPixel, tolerance: tolerance, antialias: antialias)
-        
-        return UIImage(cgImage: imageBuffer.image, scale: self.scale, orientation: UIImageOrientation.up)
-    }
+  @objc public func pbk_imageByReplacingColorAt(_ x: Int, _ y: Int, withColor: UIColor, tolerance: Int, antialias: Bool = false) -> UIImage {
+      let point = (x, y)
+      let imageBuffer = ImageBuffer(image: self.cgImage!)
+      let index = imageBuffer.indexFrom(x, y)
+      let pixel = imageBuffer[index]
+      let replacementPixel = Pixel(color: withColor)
+      imageBuffer.scanline_replaceColor(pixel, startingAtPoint: point, withColor: replacementPixel, tolerance: tolerance, antialias: antialias)
+    
+      return UIImage(cgImage: imageBuffer.image, scale: self.scale, orientation: UIImageOrientation.up)
+  }
+  
+  // Had to manually modify installed pod to add this function (This is not part of PaintBucket)
+  @objc public func getColorAt(_ x: Int, _ y: Int) -> UIColor {
+    let imageBuffer = ImageBuffer(image: self.cgImage!)
+    let index = imageBuffer.indexFrom(x, y)
+    let pixel = imageBuffer[index]
+    
+    return pixel.color
+  }
     
 }

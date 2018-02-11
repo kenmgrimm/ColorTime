@@ -57,8 +57,8 @@ extension PaintingsListController : UICollectionViewDelegate {
     let paintingCell = cell as! PaintingCollectionViewCell
     
     let painting = Services.paintingService.find(paintingId: indexPath.row)!
-    
-    paintingCell.update(with: painting.image())
+    let paintingViewModel = PaintingViewModel(painting)
+    paintingCell.update(with: paintingViewModel.paintingImage.value)
 
 //    let photo = photoDataSource.photos[indexPath.row]
 //

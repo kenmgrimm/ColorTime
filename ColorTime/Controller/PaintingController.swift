@@ -1,9 +1,10 @@
 import UIKit
 
-class PaintingController : UIViewController, UIGestureRecognizerDelegate {
+class PaintingController : UIViewController  {
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet var paletteWheelView: PaletteWheelView!
   @IBOutlet var paletteHistoryView: PaletteHistoryView!
+  @IBOutlet var paintingControlsView: PaintingControlsView!
   
   var painting: Painting!
   
@@ -25,10 +26,16 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // General view setup
+    scrollView.delegate = self
+    
+    scrollView.flashScrollIndicators()
+    
+    
     // View model / bindings and stuff
     paintingViewModel = PaintingViewModel(painting)
     paletteWheelView.paintingViewModel = paintingViewModel
-    
+    paintingControlsView.load(paintingViewModel)
     self.paletteHistoryDataSource = PaletteHistoryDataSource(paintingViewModel)
     paletteHistoryView.paintingViewModel = paintingViewModel
     paletteHistoryView.dataSource = self.paletteHistoryDataSource
@@ -36,14 +43,16 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
       self.paletteHistoryView.reloadData()
     }
     
-
-    scrollView.delegate = self
-
-    imageView = createImageView()
-    
-    scrollView.flashScrollIndicators()
-    
+    self.imageView = createImageView(paintingViewModel)
     scrollView.addSubview(imageView)
+    
+    paintingViewModel.paintingImage.bindAndFire { [unowned self] (image) in
+      self.imageView.image = image
+    }
+    
+
+
+    
     
     scrollView.contentSize = imageView.frame.size
   }
@@ -66,9 +75,8 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     //    scrollView.contentOffset = CGPoint(x: -20, y: -20)
   }
   
-  private func createImageView() -> UIImageView {
+  private func createImageView(_ paintingViewModel: PaintingViewModel) -> PaintingImageView {
     let imageView = PaintingImageView(paintingViewModel)
-    imageView.image = painting.image()
     imageView.contentMode = .scaleAspectFit
     
     imageView.sizeToFit()  // Size the imageView to fit the image

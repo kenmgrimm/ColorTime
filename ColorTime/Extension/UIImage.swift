@@ -1,4 +1,7 @@
+import Foundation
 import UIKit
+
+import PaintBucket
 
 extension UIImage {
   

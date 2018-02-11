@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-class ImageBuffer {
+public class ImageBuffer {
     let context: CGContext
     let pixelBuffer: UnsafeMutablePointer<UInt32>
     let imageWidth: Int

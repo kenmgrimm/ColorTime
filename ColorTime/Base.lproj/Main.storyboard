@@ -146,7 +146,7 @@
                                             <constraint firstAttribute="bottom" secondItem="ygN-a2-bSA" secondAttribute="bottom" constant="8" id="Wxe-aB-pGN"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-mx-Obs" userLabel="Controls View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-mx-Obs" userLabel="Controls View" customClass="PaintingControlsView" customModule="ColorTime" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="552" width="414" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbS-Q5-TbT">
@@ -231,6 +231,7 @@
                                                                 <subviews>
                                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="undo" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-uL-3zu">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="46"/>
+                                                                        <gestureRecognizers/>
                                                                     </imageView>
                                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="FYg-Bn-5an">
                                                                         <rect key="frame" x="0.0" y="54" width="50" height="46"/>
@@ -292,6 +293,10 @@
                                                 <include reference="tH8-wM-lLi"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="clearButton" destination="FYg-Bn-5an" id="MXe-g8-fpJ"/>
+                                            <outlet property="undoButton" destination="fgz-uL-3zu" id="8c4-BU-VmW"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -318,6 +323,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="paintingControlsView" destination="1cu-mx-Obs" id="jAL-IJ-RCg"/>
                         <outlet property="paletteHistoryView" destination="4Pv-JL-hi3" id="rNC-O2-Pxh"/>
                         <outlet property="paletteWheelView" destination="mnF-OQ-HLS" id="GpK-LF-6gH"/>
                         <outlet property="scrollView" destination="ygN-a2-bSA" id="xR2-oR-IyM"/>

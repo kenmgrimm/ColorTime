@@ -13,6 +13,7 @@
 		DF1F2E7220302F3E00BE6820 /* PaintingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E7120302F3E00BE6820 /* PaintingViewModel.swift */; };
 		DF1F2E74203035B100BE6820 /* PaletteHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */; };
 		DF1F2E76203036B600BE6820 /* PaletteHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */; };
+		DF1F2E7820304B6600BE6820 /* PaintingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E7720304B6600BE6820 /* PaintingControlsView.swift */; };
 		DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F759202CB8D80013D318 /* AppDelegate.swift */; };
 		DF20F75F202CB8D80013D318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF20F75D202CB8D80013D318 /* Main.storyboard */; };
 		DF20F761202CB8D80013D318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF20F760202CB8D80013D318 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		DF20F77A202CB8D80013D318 /* ColorTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F779202CB8D80013D318 /* ColorTimeUITests.swift */; };
 		DF20F789202D02980013D318 /* PaintingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F788202D02980013D318 /* PaintingController.swift */; };
 		DF20F790202D198E0013D318 /* PaintingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F78F202D198E0013D318 /* PaintingImageView.swift */; };
+		DF9D382B2030F355001445DC /* PaintBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9D382C2030F355001445DC /* PaintBucket.framework */; };
 		DFB57B0D202E2DE9008C5A17 /* PaintingFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */; };
 		DFB57B13202E2F21008C5A17 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B11202E2F21008C5A17 /* Painting.swift */; };
 		DFB57B14202E2F21008C5A17 /* PaintPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB57B12202E2F21008C5A17 /* PaintPoint.swift */; };
@@ -59,6 +61,7 @@
 		DF1F2E7120302F3E00BE6820 /* PaintingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingViewModel.swift; sourceTree = "<group>"; };
 		DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteHistoryDataSource.swift; sourceTree = "<group>"; };
 		DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteHistoryView.swift; sourceTree = "<group>"; };
+		DF1F2E7720304B6600BE6820 /* PaintingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingControlsView.swift; sourceTree = "<group>"; };
 		DF20F756202CB8D80013D318 /* ColorTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20F759202CB8D80013D318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF20F75E202CB8D80013D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		DF20F77B202CB8D80013D318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF20F788202D02980013D318 /* PaintingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingController.swift; sourceTree = "<group>"; };
 		DF20F78F202D198E0013D318 /* PaintingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingImageView.swift; sourceTree = "<group>"; };
+		DF9D382C2030F355001445DC /* PaintBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PaintBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingFileService.swift; sourceTree = "<group>"; };
 		DFB57B11202E2F21008C5A17 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		DFB57B12202E2F21008C5A17 /* PaintPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintPoint.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF9D382B2030F355001445DC /* PaintBucket.framework in Frameworks */,
 				8E9CB98335C15DC0EC8220AA /* Pods_ColorTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +128,7 @@
 		54A0CB35CE96E0C77C53F05C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF9D382C2030F355001445DC /* PaintBucket.framework */,
 				A5D5553D5DC9AB14454346F8 /* Pods_ColorTime.framework */,
 			);
 			name = Frameworks;
@@ -219,6 +225,7 @@
 				DFB57B24202E4D15008C5A17 /* PaintingCollectionViewCell.swift */,
 				DF1F2E6B20302AAE00BE6820 /* PaletteWheelView.swift */,
 				DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */,
+				DF1F2E7720304B6600BE6820 /* PaintingControlsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +467,7 @@
 				DF1F2E76203036B600BE6820 /* PaletteHistoryView.swift in Sources */,
 				DFB57B25202E4D15008C5A17 /* PaintingCollectionViewCell.swift in Sources */,
 				DF1F2E74203035B100BE6820 /* PaletteHistoryDataSource.swift in Sources */,
+				DF1F2E7820304B6600BE6820 /* PaintingControlsView.swift in Sources */,
 				DF1F2E6C20302AAE00BE6820 /* PaletteWheelView.swift in Sources */,
 				DFB57B0D202E2DE9008C5A17 /* PaintingFileService.swift in Sources */,
 			);

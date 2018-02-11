@@ -18,11 +18,6 @@ struct Painting : Codable {
     colorPaletteHistory = colorPaletteHistory.filter { (value: Int) in value != colorRgb }
     colorPaletteHistory.append(colorRgb)
   }
-  
-  func image() -> UIImage {
-    print("Fetching uncached image")
-    return Services.paintingService.image(self)
-  }
 }
 
 extension Painting : Hashable {
