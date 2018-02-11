@@ -155,16 +155,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZU-rb-67U" userLabel="Palette">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                                         <subviews>
-                                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colorWheel" translatesAutoresizingMaskIntoConstraints="NO" id="mnF-OQ-HLS" userLabel="Palette Wheel">
+                                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colorWheel" translatesAutoresizingMaskIntoConstraints="NO" id="mnF-OQ-HLS" userLabel="Palette Wheel" customClass="PaletteWheelView" customModule="ColorTime" customModuleProvider="target">
                                                                 <rect key="frame" x="4" y="-4" width="100" height="100"/>
                                                                 <gestureRecognizers/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="COb-9Q-pkj"/>
                                                                     <constraint firstAttribute="width" constant="100" id="Qfx-KQ-m8F"/>
                                                                 </constraints>
-                                                                <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="trm-EW-1Yo" appends="YES" id="UPf-eS-iKl"/>
-                                                                </connections>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,7 +325,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="paletteTapRecognizer" destination="trm-EW-1Yo" id="tB0-zi-P0s"/>
+                        <outlet property="paletteWheelView" destination="mnF-OQ-HLS" id="GpK-LF-6gH"/>
                         <outlet property="scrollView" destination="ygN-a2-bSA" id="xR2-oR-IyM"/>
                     </connections>
                 </viewController>
@@ -340,11 +337,6 @@
                     <gestureRecognizers/>
                     <viewLayoutGuide key="safeArea" id="lfG-2z-tXG"/>
                 </view>
-                <tapGestureRecognizer id="trm-EW-1Yo" userLabel="Palette Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="paletteTap:" destination="YmW-Oe-6LZ" id="tar-In-5Gf"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1349" y="133"/>
         </scene>

@@ -2,9 +2,11 @@ import UIKit
 
 class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet var scrollView: UIScrollView!
-  @IBOutlet var paletteTapRecognizer: UITapGestureRecognizer!
+  @IBOutlet var paletteWheelView: PaletteWheelView!
   
   var painting: Painting!
+  
+  private var paintingViewModel: PaintingViewModel!
   
   private var imageView: UIImageView!
 
@@ -16,14 +18,12 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     dismiss(animated: true, completion: nil)
   }
 
-  @IBAction func paletteTap(_ gestureRecognizer : UITapGestureRecognizer ) {
-    print(#function)
-    paletteClicked(gestureRecognizer)
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    paintingViewModel = PaintingViewModel(painting)
+    paletteWheelView.paintingViewModel = paintingViewModel
+
     scrollView.delegate = self
 
     imageView = createImageView()
@@ -72,25 +72,5 @@ extension PaintingController : UIScrollViewDelegate {
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return scrollView.subviews[0]
   }
-  
-  func scrollViewDidZoom(_ scrollView: UIScrollView) {
-  }
 }
 
-// Palette control
-extension PaintingController {
-  func paletteClicked(_ tapGestureRecognizer: UITapGestureRecognizer) {
-    guard tapGestureRecognizer.state == UIGestureRecognizerState.recognized,
-      let paletteImageView = tapGestureRecognizer.view as! UIImageView?,
-      let location = tapGestureRecognizer.location(in: tapGestureRecognizer.view) as CGPoint?
-      else { return }
-    
-    let pixelColor = paletteImageView.image!.getPixelColor(
-      atLocation: location,
-      withFrameSize: paletteImageView.frame.size)
-    
-//    paintingViewModel.addColorToPalette(pixelColor)
-    
-    print("PaletteView: \(location.x), \(location.y): \(pixelColor)")
-  }
-}
