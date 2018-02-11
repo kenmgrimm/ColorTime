@@ -23,7 +23,7 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     scrollView.delegate = self
     
     let imageView = PaintingImageView()
-    imageView.image = UIImage(fileURL: (painting.originalImageURL))
+    imageView.image = UIImage(fileURL: (painting.imageURL()))
     imageView.contentMode = .scaleAspectFit
     
     imageView.sizeToFit()  // Size the imageView to fit the image
@@ -60,7 +60,7 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   }
   
   private func save() {
-    
+    Services.paintingService.save(painting)
   }
 }
 

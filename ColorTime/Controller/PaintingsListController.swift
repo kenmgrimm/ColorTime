@@ -13,10 +13,6 @@ class PaintingsListController: UIViewController {
     collectionView.delegate = self
     
     updateDataSource()
-    
-    //    store.fetchInterestingPhotos { (photoResult) -> Void in
-    //      self.updateDataSource()
-    //    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,7 +51,7 @@ extension PaintingsListController : UICollectionViewDelegate {
     
     let painting = Services.paintingService.find(paintingId: indexPath.row)!
     
-    paintingCell.update(with: UIImage(fileURL: painting.originalImageURL))
+    paintingCell.update(with: UIImage(fileURL: painting.imageURL()))
 
 //    let photo = photoDataSource.photos[indexPath.row]
 //
@@ -98,6 +94,8 @@ extension PaintingsListController {
   }
   
   private func filterImage(_ image: UIImage) -> UIImage {
+    return image
+    
     let ciImage = CoreImage.CIImage(cgImage: image.cgImage!)
     let filter = CIFilter(name: "CILineOverlay",
                           withInputParameters: [
@@ -127,7 +125,7 @@ extension PaintingsListController : UIImagePickerControllerDelegate, UINavigatio
     let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     
     let newPainting = Services.paintingService.create()
-    let filename = newPainting.originalImageURL
+    let filename = newPainting.imageURL()
     
     let filteredImage = filterImage(pickedImage)
     
@@ -136,7 +134,7 @@ extension PaintingsListController : UIImagePickerControllerDelegate, UINavigatio
       try? data.write(to: filename)
     }
     
-    PaintingFileService().save(newPainting)
+    Services.paintingService.save(newPainting)
     
     dismiss(animated:true, completion: nil)
     

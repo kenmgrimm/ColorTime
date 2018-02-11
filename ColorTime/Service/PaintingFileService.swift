@@ -9,7 +9,7 @@ protocol PaintingServiceProtocol {
 class PaintingFileService : PaintingServiceProtocol {
   func create() -> Painting {
     let highestPaintingId = all().sorted(by: { (a, b) -> Bool in
-      a.paintingId > b.paintingId
+      a.paintingId < b.paintingId
     }).last?.paintingId ?? -1
     
     return Painting(paintingId: highestPaintingId + 1)
@@ -45,7 +45,7 @@ class PaintingFileService : PaintingServiceProtocol {
     
     var paintings = all()
     
-    paintings.insert(painting)
+    paintings.update(with: painting)
     
     do {
       let data = try encoder.encode(paintings)
