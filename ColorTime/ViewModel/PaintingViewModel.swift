@@ -24,9 +24,7 @@ class PaintingViewModel {
   }
   
   func addColorToPalette(_ color: UIColor) {
-    print(#function)
     painting.addColorToPalette(color)
-    Services.paintingService.saveData(painting)
   }
   
   func selectColorFromPalette(at index: Int) {
@@ -36,7 +34,6 @@ class PaintingViewModel {
   
   func addPaintingPoint(_ paintPoint : PaintPoint) {
     painting.paintPointHistory.append(paintPoint)
-    Services.paintingService.saveData(painting)
   }
   
   func undoLastPoint() -> PaintPoint? {

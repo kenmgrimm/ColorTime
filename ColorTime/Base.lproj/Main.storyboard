@@ -194,7 +194,7 @@
                                                     <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jGr-9S-8Ej" userLabel="Palette History">
                                                         <rect key="frame" x="120" y="0.0" width="224" height="100"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-JL-hi3">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Pv-JL-hi3" userLabel="Palette History Collection View" customClass="PaletteHistoryView" customModule="ColorTime" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="8" width="208" height="84"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y6j-cy-wVX">
@@ -204,25 +204,19 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XtL-Jw-1oT">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PaletteHistoryItemCell" id="XtL-Jw-1oT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
-                                                                            <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bup-wk-WsE">
-                                                                                    <rect key="frame" x="-108" y="-52" width="240" height="128"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                    <color key="backgroundColor" red="0.2389485485631323" green="1" blue="0.29483214709426286" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                </imageView>
-                                                                            </subviews>
                                                                         </view>
+                                                                        <color key="backgroundColor" red="0.93969448747130624" green="1" blue="0.58227139187273513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.70456004222554469" green="1" blue="0.80777150394512232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="4Pv-JL-hi3" firstAttribute="top" secondItem="jGr-9S-8Ej" secondAttribute="top" constant="8" id="3y0-bf-ObE"/>
                                                             <constraint firstAttribute="trailing" secondItem="4Pv-JL-hi3" secondAttribute="trailing" constant="8" id="SeH-HB-coq"/>
@@ -325,6 +319,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="paletteHistoryView" destination="4Pv-JL-hi3" id="rNC-O2-Pxh"/>
                         <outlet property="paletteWheelView" destination="mnF-OQ-HLS" id="GpK-LF-6gH"/>
                         <outlet property="scrollView" destination="ygN-a2-bSA" id="xR2-oR-IyM"/>
                     </connections>

@@ -11,6 +11,8 @@
 		DF1F2E6C20302AAE00BE6820 /* PaletteWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E6B20302AAE00BE6820 /* PaletteWheelView.swift */; };
 		DF1F2E6F20302E9600BE6820 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E6E20302E9600BE6820 /* Observable.swift */; };
 		DF1F2E7220302F3E00BE6820 /* PaintingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E7120302F3E00BE6820 /* PaintingViewModel.swift */; };
+		DF1F2E74203035B100BE6820 /* PaletteHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */; };
+		DF1F2E76203036B600BE6820 /* PaletteHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */; };
 		DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F759202CB8D80013D318 /* AppDelegate.swift */; };
 		DF20F75F202CB8D80013D318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF20F75D202CB8D80013D318 /* Main.storyboard */; };
 		DF20F761202CB8D80013D318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF20F760202CB8D80013D318 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		DF1F2E6B20302AAE00BE6820 /* PaletteWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteWheelView.swift; sourceTree = "<group>"; };
 		DF1F2E6E20302E9600BE6820 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		DF1F2E7120302F3E00BE6820 /* PaintingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingViewModel.swift; sourceTree = "<group>"; };
+		DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteHistoryDataSource.swift; sourceTree = "<group>"; };
+		DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteHistoryView.swift; sourceTree = "<group>"; };
 		DF20F756202CB8D80013D318 /* ColorTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20F759202CB8D80013D318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF20F75E202CB8D80013D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				DF20F78F202D198E0013D318 /* PaintingImageView.swift */,
 				DFB57B24202E4D15008C5A17 /* PaintingCollectionViewCell.swift */,
 				DF1F2E6B20302AAE00BE6820 /* PaletteWheelView.swift */,
+				DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */,
 				DFB57B17202E2F6B008C5A17 /* FileService.swift */,
 				DFB57B26202FA991008C5A17 /* Services.swift */,
+				DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -451,7 +457,9 @@
 				DFB57B1D202E2F9A008C5A17 /* UIColor.swift in Sources */,
 				DFB57B1E202E2F9A008C5A17 /* UIImage.swift in Sources */,
 				DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */,
+				DF1F2E76203036B600BE6820 /* PaletteHistoryView.swift in Sources */,
 				DFB57B25202E4D15008C5A17 /* PaintingCollectionViewCell.swift in Sources */,
+				DF1F2E74203035B100BE6820 /* PaletteHistoryDataSource.swift in Sources */,
 				DF1F2E6C20302AAE00BE6820 /* PaletteWheelView.swift in Sources */,
 				DFB57B0D202E2DE9008C5A17 /* PaintingFileService.swift in Sources */,
 			);

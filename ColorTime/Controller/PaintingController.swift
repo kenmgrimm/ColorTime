@@ -3,8 +3,12 @@ import UIKit
 class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet var paletteWheelView: PaletteWheelView!
+  @IBOutlet var paletteHistoryView: PaletteHistoryView!
   
   var painting: Painting!
+  
+  // Must hold strong reference to data source as the collectionView.dataSource is weak..
+  private var paletteHistoryDataSource: PaletteHistoryDataSource!
   
   private var paintingViewModel: PaintingViewModel!
   
@@ -21,8 +25,17 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // View model / bindings and stuff
     paintingViewModel = PaintingViewModel(painting)
     paletteWheelView.paintingViewModel = paintingViewModel
+    
+    self.paletteHistoryDataSource = PaletteHistoryDataSource(paintingViewModel)
+    paletteHistoryView.paintingViewModel = paintingViewModel
+    paletteHistoryView.dataSource = self.paletteHistoryDataSource
+    paintingViewModel.colorPaletteHistory.bindAndFire { [unowned self] ([Int]) in
+      self.paletteHistoryView.reloadData()
+    }
+    
 
     scrollView.delegate = self
 
