@@ -25,7 +25,7 @@ class PaintingImageView : UIImageView {
   }
 
   func floodFill(at point: CGPoint, color: UIColor) {
-    self.image = image!.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: 200)
+    self.image = image!.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: 300)
   }
   
 //  func floodFill(at point: CGPoint) {

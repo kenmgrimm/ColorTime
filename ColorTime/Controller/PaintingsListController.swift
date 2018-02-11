@@ -101,22 +101,45 @@ extension PaintingsListController {
   }
   
   private func filterImage(_ image: UIImage) -> UIImage {
-    return image
+//    return image
     
-    let ciImage = CoreImage.CIImage(cgImage: image.cgImage!)
-    let filter = CIFilter(name: "CILineOverlay",
-                          withInputParameters: [
-                            "inputNRNoiseLevel": 0.27, // 0.07
-                            "inputNRSharpness": 0.31, // 0.71
-                            "inputEdgeIntensity": 1.0, // 1.0
-                            "inputThreshold": 1, // 0.1
-                            "inputContrast": 50.0 // 50
-      ])
-    
-    filter?.setDefaults()
-    filter?.setValue(ciImage, forKey: "inputImage")
+    var ciImage = CoreImage.CIImage(cgImage: image.cgImage!)
+//    var filter = CIFilter(name: "CILineOverlay",
+//                          withInputParameters: [
+//                            "inputImage": ciImage,
+//                            "inputNRNoiseLevel": 0.07, // 0.07
+//                            "inputNRSharpness": 0.31, // 0.71
+//                            "inputEdgeIntensity": 0.5, // 1.0
+//                            "inputThreshold": 0.1, // 0.1
+//                            "inputContrast": 10.0 // 50
+//    ])
+//
+//    filter?.setDefaults()
     let context = CIContext(options:nil)
-    let outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
+//    var outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
+//    ciImage = CoreImage.CIImage(cgImage: outputCiImage!)
+
+    
+    var filter = CIFilter(name: "CIColorPosterize",
+                           withInputParameters: [
+                            "inputImage": ciImage
+    ])
+
+    var outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
+//    ciImage = CoreImage.CIImage(cgImage: outputCiImage!)
+//
+//
+//    let ciWhite = CIColor(red: 1, green: 1, blue: 1)
+//    filter = CIFilter(name: "CIColorMonochrome",
+//                           withInputParameters: [
+//                            "inputImage": ciImage,
+//                            "inputIntensity": 50,
+//                            "inputColor": ciWhite
+//    ])
+//
+//    outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
+//
+    
     
     let outputImage = UIImage(cgImage: outputCiImage!)
     
