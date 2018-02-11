@@ -67,7 +67,7 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   }
   
   private func createImageView() -> UIImageView {
-    let imageView = PaintingImageView()
+    let imageView = PaintingImageView(paintingViewModel)
     imageView.image = painting.image()
     imageView.contentMode = .scaleAspectFit
     

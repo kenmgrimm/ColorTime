@@ -3,9 +3,12 @@ import UIKit
 import PaintBucket
 
 class PaintingImageView : UIImageView {
-  init() {
+  var paintingViewModel: PaintingViewModel!
+  
+  init(_ paintingViewModel: PaintingViewModel) {
     super.init(frame: CGRect.zero)
     
+    self.paintingViewModel = paintingViewModel
     isUserInteractionEnabled = true
     
     let tapRecognizer = UITapGestureRecognizer(target: self,
@@ -21,7 +24,7 @@ class PaintingImageView : UIImageView {
   @objc func tap(_ gestureRecognizer: UIGestureRecognizer) {
     let touchPoint = gestureRecognizer.location(in: self)
     
-    floodFill(at: touchPoint, color: UIColor.red)
+    floodFill(at: touchPoint, color: paintingViewModel.currentPaletteColor())
   }
 
   func floodFill(at point: CGPoint, color: UIColor) {
