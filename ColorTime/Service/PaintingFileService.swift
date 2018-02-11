@@ -1,9 +1,15 @@
 import Foundation
 
+import PaintBucket
+
 protocol PaintingServiceProtocol {
   func all() -> Set<Painting>
+  func create() -> Painting
   func find(paintingId: Int) -> Painting?
-  func save(_ painting: Painting)
+  func saveData(_ painting: Painting)
+  func saveImage(_ painting: Painting, _ image: UIImage)
+  func saveDataAndImage(_ painting: Painting, _ image: UIImage)
+  func image(_ painting: Painting) -> UIImage
 }
 
 class PaintingFileService : PaintingServiceProtocol {
@@ -17,7 +23,7 @@ class PaintingFileService : PaintingServiceProtocol {
   
   func all() -> Set<Painting> {
     let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
-    print("\(#function) - Loading: \(url.absoluteString)")
+    print(url.absoluteString)
     
     let decoder = JSONDecoder()
     do {
@@ -37,9 +43,29 @@ class PaintingFileService : PaintingServiceProtocol {
     })
   }
   
-  func save(_ painting: Painting) {
+  func image(_ painting: Painting) -> UIImage {
+    return UIImage(fileURL: imageURL(painting))!
+  }
+  
+  func saveDataAndImage(_ painting: Painting, _ image: UIImage) {
+    saveData(painting)
+    saveImage(painting, image)
+  }
+  
+  func saveImage(_ painting: Painting, _ image: UIImage) {
+    print("Saving \(imageURL(painting))")
+    if let data = UIImagePNGRepresentation(image) {
+      try? data.write(to: imageURL(painting))
+    }
+  }
+  
+  // Should be moved to a PaintingImageService
+  private func imageURL(_ painting: Painting) -> URL {
+    return FileService.getDocumentsURL().appendingPathComponent("painting_\(painting.paintingId).png")
+  }
+  
+  func saveData(_ painting: Painting) {
     let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
-    print("\(#function) - Saving to: \(url.absoluteString)")
     
     let encoder = JSONEncoder()
     

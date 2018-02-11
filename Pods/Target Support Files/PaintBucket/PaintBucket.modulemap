@@ -1,0 +1,6 @@
+framework module PaintBucket {
+  umbrella header "PaintBucket-umbrella.h"
+
+  export *
+  module * { export * }
+}

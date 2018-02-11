@@ -19,8 +19,9 @@ struct Painting : Codable {
     colorPaletteHistory.append(colorRgb)
   }
   
-  func imageURL() -> URL {
-    return FileService.getDocumentsURL().appendingPathComponent("painting_\(self.paintingId).png")
+  func image() -> UIImage {
+    print("Fetching uncached image")
+    return Services.paintingService.image(self)
   }
 }
 

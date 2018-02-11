@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E9CB98335C15DC0EC8220AA /* Pods_ColorTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D5553D5DC9AB14454346F8 /* Pods_ColorTime.framework */; };
 		DF20F75A202CB8D80013D318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20F759202CB8D80013D318 /* AppDelegate.swift */; };
 		DF20F75F202CB8D80013D318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF20F75D202CB8D80013D318 /* Main.storyboard */; };
 		DF20F761202CB8D80013D318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF20F760202CB8D80013D318 /* Assets.xcassets */; };
@@ -45,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E8BC2694EBEE2C3E8E61EA2 /* Pods-ColorTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColorTime/Pods-ColorTime.debug.xcconfig"; sourceTree = "<group>"; };
+		99AE4D1CB7FB6D2A7A539A44 /* Pods-ColorTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColorTime/Pods-ColorTime.release.xcconfig"; sourceTree = "<group>"; };
+		A5D5553D5DC9AB14454346F8 /* Pods_ColorTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20F756202CB8D80013D318 /* ColorTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF20F759202CB8D80013D318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF20F75E202CB8D80013D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E9CB98335C15DC0EC8220AA /* Pods_ColorTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544346CC210CDAA8E3373EDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E8BC2694EBEE2C3E8E61EA2 /* Pods-ColorTime.debug.xcconfig */,
+				99AE4D1CB7FB6D2A7A539A44 /* Pods-ColorTime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54A0CB35CE96E0C77C53F05C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5D5553D5DC9AB14454346F8 /* Pods_ColorTime.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DF20F74D202CB8D70013D318 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +125,8 @@
 				DF20F76D202CB8D80013D318 /* ColorTimeTests */,
 				DF20F778202CB8D80013D318 /* ColorTimeUITests */,
 				DF20F757202CB8D80013D318 /* Products */,
+				544346CC210CDAA8E3373EDA /* Pods */,
+				54A0CB35CE96E0C77C53F05C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,9 +229,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF20F77E202CB8D80013D318 /* Build configuration list for PBXNativeTarget "ColorTime" */;
 			buildPhases = (
+				62C30A49E811E6CF170FA43A /* [CP] Check Pods Manifest.lock */,
 				DF20F752202CB8D80013D318 /* Sources */,
 				DF20F753202CB8D80013D318 /* Frameworks */,
 				DF20F754202CB8D80013D318 /* Resources */,
+				9B0D0C92D0380BD37A2CA40A /* [CP] Embed Pods Frameworks */,
+				5CA2C5F444B5429EB8437ABE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +353,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CA2C5F444B5429EB8437ABE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColorTime/Pods-ColorTime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62C30A49E811E6CF170FA43A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ColorTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B0D0C92D0380BD37A2CA40A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ColorTime/Pods-ColorTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PaintBucket/PaintBucket.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PaintBucket.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColorTime/Pods-ColorTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF20F752202CB8D80013D318 /* Sources */ = {
@@ -508,6 +589,7 @@
 		};
 		DF20F77F202CB8D80013D318 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E8BC2694EBEE2C3E8E61EA2 /* Pods-ColorTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +605,7 @@
 		};
 		DF20F780202CB8D80013D318 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99AE4D1CB7FB6D2A7A539A44 /* Pods-ColorTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

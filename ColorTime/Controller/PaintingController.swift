@@ -4,6 +4,8 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet var scrollView: UIScrollView!
   
   var painting: Painting!
+  
+  private var imageView: UIImageView!
 
   @IBAction func done() {
     save()
@@ -16,29 +18,15 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print(#function)
-
-    print(Services.paintingService.all().first as Any)
-    
     scrollView.delegate = self
-    
-    let imageView = PaintingImageView()
-    imageView.image = UIImage(fileURL: (painting.imageURL()))
-    imageView.contentMode = .scaleAspectFit
-    
-    imageView.sizeToFit()  // Size the imageView to fit the image
+
+    imageView = createImageView()
     
     scrollView.flashScrollIndicators()
     
     scrollView.addSubview(imageView)
     
     scrollView.contentSize = imageView.frame.size
-  }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    
-    print(#function)
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -59,8 +47,18 @@ class PaintingController : UIViewController, UIGestureRecognizerDelegate {
     //    scrollView.contentOffset = CGPoint(x: -20, y: -20)
   }
   
+  private func createImageView() -> UIImageView {
+    let imageView = PaintingImageView()
+    imageView.image = painting.image()
+    imageView.contentMode = .scaleAspectFit
+    
+    imageView.sizeToFit()  // Size the imageView to fit the image
+    
+    return imageView
+  }
+  
   private func save() {
-    Services.paintingService.save(painting)
+    Services.paintingService.saveDataAndImage(painting, imageView.image!)
   }
 }
 

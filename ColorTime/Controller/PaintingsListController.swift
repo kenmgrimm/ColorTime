@@ -15,6 +15,12 @@ class PaintingsListController: UIViewController {
     updateDataSource()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    collectionView.reloadData()
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
     case "painting"?:
@@ -47,11 +53,12 @@ class PaintingsListController: UIViewController {
 // Paintings list related
 extension PaintingsListController : UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    print(#function)
     let paintingCell = cell as! PaintingCollectionViewCell
     
     let painting = Services.paintingService.find(paintingId: indexPath.row)!
     
-    paintingCell.update(with: UIImage(fileURL: painting.imageURL()))
+    paintingCell.update(with: painting.image())
 
 //    let photo = photoDataSource.photos[indexPath.row]
 //
@@ -125,16 +132,10 @@ extension PaintingsListController : UIImagePickerControllerDelegate, UINavigatio
     let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     
     let newPainting = Services.paintingService.create()
-    let filename = newPainting.imageURL()
     
     let filteredImage = filterImage(pickedImage)
     
-    print("\(#function) - Writing to \(filename)")
-    if let data = UIImagePNGRepresentation(filteredImage) {
-      try? data.write(to: filename)
-    }
-    
-    Services.paintingService.save(newPainting)
+    Services.paintingService.saveDataAndImage(newPainting, filteredImage)
     
     dismiss(animated:true, completion: nil)
     

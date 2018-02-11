@@ -11,8 +11,7 @@ class FileService {
   
   static func getDataURL(filePath: String) -> URL? {
     let path = URL(fileURLWithPath: "\(Bundle.main.bundlePath)/Data/\(filePath)")
-    print("getDataURL(): \(path)")
-    
+
     return path
   }
 }

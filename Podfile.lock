@@ -1,0 +1,12 @@
+PODS:
+  - PaintBucket (0.2)
+
+DEPENDENCIES:
+  - PaintBucket (~> 0.1)
+
+SPEC CHECKSUMS:
+  PaintBucket: ffa4e1666ee71e0c2fe8b299e2a1b87afaf3fe78
+
+PODFILE CHECKSUM: 93c491ba1ee88b4b3c893da55fbce5093aa969f9
+
+COCOAPODS: 1.3.1
