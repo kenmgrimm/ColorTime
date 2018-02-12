@@ -23,7 +23,6 @@ class PaintingFileService : PaintingServiceProtocol {
   
   func all() -> Set<Painting> {
     let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
-    print(url.absoluteString)
     
     let decoder = JSONDecoder()
     do {
@@ -53,7 +52,6 @@ class PaintingFileService : PaintingServiceProtocol {
   }
   
   func saveImage(_ painting: Painting, _ image: UIImage) {
-    print("Saving \(imageURL(painting))")
     if let data = UIImagePNGRepresentation(image) {
       try? data.write(to: imageURL(painting))
     }

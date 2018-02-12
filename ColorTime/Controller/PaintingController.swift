@@ -18,9 +18,9 @@ class PaintingController : UIViewController  {
   @IBAction func done() {
     save()
     
-    navigationController?.popViewController(animated: true)
+    navigationController?.popViewController(animated: false)
     
-    dismiss(animated: true, completion: nil)
+    dismiss(animated: false, completion: nil)
   }
 
   override func viewDidLoad() {
@@ -48,17 +48,15 @@ class PaintingController : UIViewController  {
     self.imageView = createImageView(paintingViewModel)
     scrollView.addSubview(imageView)
     
-    paintingViewModel.paintingImage.bindAndFire { [unowned self] (image) in
+    paintingViewModel.paintingImage.bind { [unowned self] (image) in
       self.imageView.image = image
     }
-    
 
-    
     scrollView.contentSize = imageView.frame.size
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
     // Now that the scrollView's frame has been set we need to set the zoomScale
     let imageView = scrollView.subviews[0]
@@ -77,15 +75,13 @@ class PaintingController : UIViewController  {
   
   private func createImageView(_ paintingViewModel: PaintingViewModel) -> PaintingImageView {
     let imageView = PaintingImageView(paintingViewModel)
-    imageView.contentMode = .scaleAspectFit
-    
-    imageView.sizeToFit()  // Size the imageView to fit the image
-    
+
     return imageView
   }
   
   private func save() {
-    Services.paintingService.saveDataAndImage(painting, paintingViewModel.paintingImage.value)
+    guard let image = paintingViewModel.paintingImage.value else { return }
+    Services.paintingService.saveDataAndImage(painting, image)
   }
 }
 

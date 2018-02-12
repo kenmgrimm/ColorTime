@@ -9,7 +9,14 @@ class PaintingImageView : UIImageView {
     super.init(frame: CGRect.zero)
     
     self.paintingViewModel = paintingViewModel
-    self.image = paintingViewModel.paintingImage.value
+    self.contentMode = .scaleAspectFit
+    
+    // here setting in constructor, controller also sets...
+    // Hack to size imageView correctly before correct image is loaded.  Spent a lot of time getting it to
+    //  size after fetching but it always caused problems sizeing within the scrollView
+    self.image = paintingViewModel.paintingImage.value ?? #imageLiteral(resourceName: "owls")
+
+    sizeToFit()  // Size the imageView to fit the image
     
     isUserInteractionEnabled = true
     

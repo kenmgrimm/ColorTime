@@ -50,11 +50,10 @@
                                                         </activityIndicatorView>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" red="0.80428727913526055" green="0.90958615917642927" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="imageView" destination="4Bv-uD-egC" id="yuX-mU-2FE"/>
                                                     <outlet property="spinner" destination="PJg-JJ-eDx" id="PzT-hP-fzv"/>
-                                                    <segue destination="8kt-ow-c03" kind="show" identifier="painting" id="W2P-lP-Wtm"/>
+                                                    <segue destination="8kt-ow-c03" kind="show" identifier="painting" animates="NO" id="W2P-lP-Wtm"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

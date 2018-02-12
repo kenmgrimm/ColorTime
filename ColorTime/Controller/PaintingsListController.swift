@@ -11,8 +11,6 @@ class PaintingsListController: UIViewController {
     
     collectionView.dataSource = collectionDataSource
     collectionView.delegate = self
-    
-    updateDataSource()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -36,18 +34,6 @@ class PaintingsListController: UIViewController {
       preconditionFailure("Unexpected segue identifier")
     }
   }
-  
-  private func updateDataSource() {
-    //    store.fetchAllPhotos(completion: { (photoResult) in
-    //      switch photoResult {
-    //      case let .success(photos):
-    //        self.photoDataSource.photos = photos
-    //      case .failure:
-    //        self.photoDataSource.photos.removeAll()
-    //      }
-    //      self.collectionView.reloadSections(IndexSet(integer: 0))
-    //    })
-  }
 }
 
 // Paintings list related
@@ -58,23 +44,10 @@ extension PaintingsListController : UICollectionViewDelegate {
     
     let painting = Services.paintingService.find(paintingId: indexPath.row)!
     let paintingViewModel = PaintingViewModel(painting)
-    paintingCell.update(with: paintingViewModel.paintingImage.value)
-
-//    let photo = photoDataSource.photos[indexPath.row]
-//
-//    store.fetchImage(for: photo, completion: { (result) -> Void in
-//      guard let photoIndex = self.photoDataSource.photos.index(of: photo),
-//        case let .success(image) = result
-//        else {
-//          return
-//      }
-//
-//      let photoIndexPath = IndexPath(item: photoIndex, section: 0)
-//
-//      if let cell = self.collectionView.cellForItem(at: photoIndexPath) as? PhotoCollectionViewCell {
-//        cell.update(with: image)
-//      }
-//    })
+    
+    paintingViewModel.paintingImage.bind { (image) in
+      paintingCell.update(with: image)
+    }
   }
 }
 
@@ -104,28 +77,28 @@ extension PaintingsListController {
 //    return image
     
     var ciImage = CoreImage.CIImage(cgImage: image.cgImage!)
-//    var filter = CIFilter(name: "CILineOverlay",
-//                          withInputParameters: [
-//                            "inputImage": ciImage,
-//                            "inputNRNoiseLevel": 0.07, // 0.07
-//                            "inputNRSharpness": 0.31, // 0.71
-//                            "inputEdgeIntensity": 0.5, // 1.0
-//                            "inputThreshold": 0.1, // 0.1
-//                            "inputContrast": 10.0 // 50
-//    ])
-//
-//    filter?.setDefaults()
-    let context = CIContext(options:nil)
-//    var outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
-//    ciImage = CoreImage.CIImage(cgImage: outputCiImage!)
-
-    
-    var filter = CIFilter(name: "CIColorPosterize",
-                           withInputParameters: [
-                            "inputImage": ciImage
+    var filter = CIFilter(name: "CILineOverlay",
+                          withInputParameters: [
+                            "inputImage": ciImage,
+                            "inputNRNoiseLevel": 0.07, // 0.07
+                            "inputNRSharpness": 0.31, // 0.71
+                            "inputEdgeIntensity": 0.5, // 1.0
+                            "inputThreshold": 0.1, // 0.1
+                            "inputContrast": 10.0 // 50
     ])
 
+    filter?.setDefaults()
+    let context = CIContext(options:nil)
     var outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
+    ciImage = CoreImage.CIImage(cgImage: outputCiImage!)
+
+    
+//    var filter = CIFilter(name: "CIColorPosterize",
+//                           withInputParameters: [
+//                            "inputImage": ciImage
+//    ])
+//
+//    var outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
 //    ciImage = CoreImage.CIImage(cgImage: outputCiImage!)
 //
 //

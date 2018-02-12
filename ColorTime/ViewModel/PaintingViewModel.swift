@@ -3,14 +3,26 @@ import UIKit
 
 import PaintBucket
 
+enum FetchImageResult {
+  case success(UIImage)
+  case failure(ImageError)
+}
+
+enum ImageError : Error {
+  case fetchImageError
+}
+
+
 class PaintingViewModel {
+  private let FLOOD_TOLERANCE = 1000
+  
   private var painting: Painting {
     didSet {
       updateColorPaletteHistory()
     }
   }
   
-  var paintingImage: Observable<UIImage>
+  let paintingImage: Observable<UIImage?>
 
   private(set) var colorPaletteHistory : Observable<[Int]>
   
@@ -18,7 +30,13 @@ class PaintingViewModel {
     self.painting = painting
     
     self.colorPaletteHistory = Observable(painting.colorPaletteHistory.reversed())
-    self.paintingImage = Observable(Services.paintingService.image(painting))
+    self.paintingImage = Observable(nil)
+    
+    fetchImage(completion: { (imageResult) in
+      guard case let .success(image) = imageResult else { return }
+      
+      self.paintingImage.value = image
+    })
     
     subscribeToNotifications()
   }
@@ -50,14 +68,41 @@ class PaintingViewModel {
     painting.paintPointHistory.append(paintPoint)
   }
 
+  
+  // Image processing / floodfill
+  public func fetchImage(completion: @escaping (FetchImageResult) -> Void) {
+
+    // [unowned self] in  ?
+    DispatchQueue.global(qos: .userInitiated).async { // async
+      let image = Services.paintingService.image(self.painting)  // slow
+      
+      OperationQueue.main.addOperation {
+        completion(.success(image))
+      }
+    }
+  }
+  
+//  private func floodFillSync(at point: CGPoint, completion: @escaping (PhotoLoadResult) -> Void) {
+//
+////    floodFill()
+////    self.paintingImage.value =
+//    OperationQueue.main.addOperation {
+//      completion(.success(UIImage()))
+//    }
+//  }
+  
+  
   private func floodFill(at point: CGPoint, color: UIColor) {
-    self.paintingImage.value = self.paintingImage.value.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: 300)
+    guard let image = self.paintingImage.value else { return }
+    
+    image.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: FLOOD_TOLERANCE)
   }
   
   private func floodFill(at point: CGPoint) {
+    guard let image = self.paintingImage.value else { return }
     let newColor = currentPaletteColor()
     
-    let currentPixelColor = self.paintingImage.value.getColorAt(Int(point.x), Int(point.y))
+    let currentPixelColor = image.getColorAt(Int(point.x), Int(point.y))
     
     let paintPoint = PaintPoint(position: point, oldColor: currentPixelColor, newColor: newColor)
     addPaintingPoint(paintPoint)
@@ -66,7 +111,7 @@ class PaintingViewModel {
   }
   
   private func debugDrawPoint(_ x: CGFloat, _ y: CGFloat) {
-    let image = self.paintingImage.value
+    guard let image = self.paintingImage.value else { return }
     
     UIGraphicsBeginImageContext(image.size)
     image.draw(at: CGPoint.zero)
