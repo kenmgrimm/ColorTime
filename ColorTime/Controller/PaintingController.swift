@@ -34,8 +34,10 @@ class PaintingController : UIViewController  {
     
     // View model / bindings and stuff
     paintingViewModel = PaintingViewModel(painting)
+    
     paletteWheelView.paintingViewModel = paintingViewModel
     paintingControlsView.load(paintingViewModel)
+    
     self.paletteHistoryDataSource = PaletteHistoryDataSource(paintingViewModel)
     paletteHistoryView.paintingViewModel = paintingViewModel
     paletteHistoryView.dataSource = self.paletteHistoryDataSource
@@ -51,8 +53,6 @@ class PaintingController : UIViewController  {
     }
     
 
-
-    
     
     scrollView.contentSize = imageView.frame.size
   }
@@ -85,7 +85,7 @@ class PaintingController : UIViewController  {
   }
   
   private func save() {
-    Services.paintingService.saveDataAndImage(painting, imageView.image!)
+    Services.paintingService.saveDataAndImage(painting, paintingViewModel.paintingImage.value)
   }
 }
 

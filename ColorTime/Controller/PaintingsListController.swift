@@ -129,15 +129,15 @@ extension PaintingsListController {
 //    ciImage = CoreImage.CIImage(cgImage: outputCiImage!)
 //
 //
-//    let ciWhite = CIColor(red: 1, green: 1, blue: 1)
-//    filter = CIFilter(name: "CIColorMonochrome",
-//                           withInputParameters: [
-//                            "inputImage": ciImage,
-//                            "inputIntensity": 50,
-//                            "inputColor": ciWhite
-//    ])
-//
-//    outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
+    let ciWhite = CIColor(red: 1, green: 1, blue: 1)
+    filter = CIFilter(name: "CIColorMonochrome",
+                           withInputParameters: [
+                            "inputImage": ciImage,
+                            "inputIntensity": 1,
+                            "inputColor": ciWhite
+    ])
+
+    outputCiImage = context.createCGImage(filter!.outputImage!, from: filter!.outputImage!.extent)
 //
     
     

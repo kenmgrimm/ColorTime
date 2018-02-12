@@ -6,7 +6,7 @@ import PaintBucket
 class PaintingViewModel {
   private var painting: Painting {
     didSet {
-      self.colorPaletteHistory.value = painting.colorPaletteHistory.reversed()
+      updateColorPaletteHistory()
     }
   }
   
@@ -29,15 +29,21 @@ class PaintingViewModel {
   
   func addColorToPalette(_ color: UIColor) {
     painting.addColorToPalette(color)
+    updateColorPaletteHistory()
   }
   
   func selectColorFromPalette(at index: Int) {
     let colorRgb = self.colorPaletteHistory.value[index]
     painting.addColorToPalette(UIColor(rgb: colorRgb))
+    updateColorPaletteHistory()
   }
   
   func paintingTouched(at point: CGPoint) {
     floodFill(at: point)
+  }
+  
+  private func updateColorPaletteHistory() {
+    self.colorPaletteHistory.value = painting.colorPaletteHistory.reversed()
   }
   
   private func addPaintingPoint(_ paintPoint : PaintPoint) {
