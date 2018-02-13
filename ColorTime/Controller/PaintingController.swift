@@ -51,7 +51,10 @@ class PaintingController : UIViewController  {
     paintingViewModel.paintingImage.bind { [unowned self] (image) in
       self.imageView.image = image
     }
-
+    
+    self.imageView.image = Services.paintingService.image(painting)
+    self.imageView.sizeToFit()
+    
     scrollView.contentSize = imageView.frame.size
   }
   
@@ -75,7 +78,9 @@ class PaintingController : UIViewController  {
   
   private func createImageView(_ paintingViewModel: PaintingViewModel) -> PaintingImageView {
     let imageView = PaintingImageView(paintingViewModel)
+    imageView.contentMode = .scaleAspectFit
 
+    imageView.sizeToFit()  // Size the imageView to fit the image
     return imageView
   }
   

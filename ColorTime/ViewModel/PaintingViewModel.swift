@@ -30,7 +30,7 @@ class PaintingViewModel {
     self.painting = painting
     
     self.colorPaletteHistory = Observable(painting.colorPaletteHistory.reversed())
-    self.paintingImage = Observable(nil)
+    self.paintingImage = Observable(#imageLiteral(resourceName: "owls"))
     
     fetchImage(completion: { (imageResult) in
       guard case let .success(image) = imageResult else { return }
@@ -95,7 +95,7 @@ class PaintingViewModel {
   private func floodFill(at point: CGPoint, color: UIColor) {
     guard let image = self.paintingImage.value else { return }
     
-    image.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: FLOOD_TOLERANCE)
+    self.paintingImage.value = image.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: FLOOD_TOLERANCE)
   }
   
   private func floodFill(at point: CGPoint) {
