@@ -19,6 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acW-DG-Va9">
+                                <rect key="frame" x="0.0" y="346" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Q4b-Wd-RQh">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2nB-MV-QOH">
+                                            <connections>
+                                                <action selector="takePhoto:" destination="BYZ-38-t0r" id="FBW-xP-CSC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkt-6c-eTy" userLabel="Paintings Area">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <subviews>
@@ -72,13 +85,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="V3f-mL-Qyx"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem systemItem="camera" id="UJo-1s-Lmk">
-                                        <connections>
-                                            <action selector="takePhoto:" destination="BYZ-38-t0r" id="JDG-mD-F0Y"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,7 +100,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XIe-Gz-aAp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gAn-en-wUc"/>
+                    <navigationItem key="navigationItem" id="gAn-en-wUc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UJo-1s-Lmk">
+                            <connections>
+                                <action selector="takePhoto:" destination="BYZ-38-t0r" id="JDG-mD-F0Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="fUO-Ma-SJa" id="rkO-Af-HG9"/>
                     </connections>

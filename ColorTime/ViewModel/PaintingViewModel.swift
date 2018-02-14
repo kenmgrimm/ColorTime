@@ -69,7 +69,6 @@ class PaintingViewModel {
   }
 
   
-  // Image processing / floodfill
   public func fetchImage(completion: @escaping (FetchImageResult) -> Void) {
 
     // [unowned self] in  ?
@@ -81,7 +80,9 @@ class PaintingViewModel {
       }
     }
   }
-  
+
+// Image processing / floodfill
+
 //  private func floodFillSync(at point: CGPoint, completion: @escaping (PhotoLoadResult) -> Void) {
 //
 ////    floodFill()

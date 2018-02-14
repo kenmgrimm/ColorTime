@@ -4,6 +4,7 @@ import PaintBucket
 
 protocol PaintingServiceProtocol {
   func all() -> Set<Painting>
+  func count() -> Int
   func create() -> Painting
   func find(paintingId: Int) -> Painting?
   func saveData(_ painting: Painting)
@@ -30,10 +31,14 @@ class PaintingFileService : PaintingServiceProtocol {
       
       return try Set(decoder.decode([Painting].self, from: data))
     } catch  {
-      print(#function + " - paintings data file not found or corrupt")
+      print(#function + " - paintings data file not found or corrupt.  Creating new one.")
     }
     
     return Set<Painting>()
+  }
+  
+  func count() -> Int {
+    return all().count
   }
   
   func find(paintingId: Int) -> Painting? {
