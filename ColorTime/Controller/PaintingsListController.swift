@@ -1,8 +1,5 @@
 import UIKit
 
-import Alamofire
-import AlamofireImage
-
 class PaintingsListController: UIViewController {
   @IBOutlet var collectionView: UICollectionView!
   
@@ -75,11 +72,20 @@ extension PaintingsListController {
     })
   }
   
+  func resizeImage(image: UIImage, newHeight: CGFloat) -> UIImage {
+    let scale = newHeight / image.size.height
+    let newWidth = image.size.width * scale
+    
+    UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+    image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return newImage!
+  }
+  
   private func filterImage(_ image: UIImage) -> UIImage {
-    let size = CGSize(width: 800, height: 800)
-    let aspectScaledToFitImage = image.af_imageAspectScaled(toFit: size)
-
-    return aspectScaledToFitImage
+    return resizeImage(image: image, newHeight: 800)
     
 //    var ciImage = CoreImage.CIImage(cgImage: aspectScaledToFitImage.cgImage!)
 //    var filter = CIFilter(name: "CILineOverlay",

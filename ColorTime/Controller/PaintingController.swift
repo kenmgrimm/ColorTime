@@ -31,7 +31,6 @@ class PaintingController : UIViewController  {
     
     scrollView.flashScrollIndicators()
     
-    
     // View model / bindings and stuff
     paintingViewModel = PaintingViewModel(painting)
     
@@ -78,7 +77,6 @@ class PaintingController : UIViewController  {
   
   private func createImageView(_ paintingViewModel: PaintingViewModel) -> PaintingImageView {
     let imageView = PaintingImageView(paintingViewModel)
-    imageView.contentMode = .scaleAspectFit
 
     imageView.sizeToFit()  // Size the imageView to fit the image
     return imageView

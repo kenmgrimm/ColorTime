@@ -6,6 +6,5 @@ target 'ColorTime' do
   use_frameworks!
 
   # Pods for ColorTime
-  pod 'AlamofireImage', '~> 3.3'
   pod 'PaintBucket', '~> 0.1'
 end

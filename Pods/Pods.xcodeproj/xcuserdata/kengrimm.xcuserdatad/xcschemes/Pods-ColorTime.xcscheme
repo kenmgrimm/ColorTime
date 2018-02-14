@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8C1D8538713D96B54947ACEAF5163F2"
+               BlueprintIdentifier = "54C9BEE801D702CFE819CA73935983EB"
                BuildableName = "Pods_ColorTime.framework"
                BlueprintName = "Pods-ColorTime"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8C1D8538713D96B54947ACEAF5163F2"
+            BlueprintIdentifier = "54C9BEE801D702CFE819CA73935983EB"
             BuildableName = "Pods_ColorTime.framework"
             BlueprintName = "Pods-ColorTime"
             ReferencedContainer = "container:Pods.xcodeproj">
