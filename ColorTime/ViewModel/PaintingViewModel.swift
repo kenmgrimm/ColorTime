@@ -70,10 +70,9 @@ class PaintingViewModel {
 
   
   public func fetchImage(completion: @escaping (FetchImageResult) -> Void) {
-
     // [unowned self] in  ?
     DispatchQueue.global(qos: .userInitiated).async { // async
-      let image = Services.paintingService.image(self.painting)  // slow
+      guard let image = Services.imageService.image(for: self.painting) else { return }
       
       OperationQueue.main.addOperation {
         completion(.success(image))

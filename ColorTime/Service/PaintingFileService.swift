@@ -8,9 +8,7 @@ protocol PaintingServiceProtocol {
   func create() -> Painting
   func find(paintingId: Int) -> Painting?
   func saveData(_ painting: Painting)
-  func saveImage(_ painting: Painting, _ image: UIImage)
   func saveDataAndImage(_ painting: Painting, _ image: UIImage)
-  func image(_ painting: Painting) -> UIImage
 }
 
 class PaintingFileService : PaintingServiceProtocol {
@@ -47,24 +45,9 @@ class PaintingFileService : PaintingServiceProtocol {
     })
   }
   
-  func image(_ painting: Painting) -> UIImage {
-    return UIImage(fileURL: imageURL(painting))!
-  }
-  
   func saveDataAndImage(_ painting: Painting, _ image: UIImage) {
     saveData(painting)
-    saveImage(painting, image)
-  }
-  
-  func saveImage(_ painting: Painting, _ image: UIImage) {
-    if let data = UIImagePNGRepresentation(image) {
-      try? data.write(to: imageURL(painting))
-    }
-  }
-  
-  // Should be moved to a PaintingImageService
-  private func imageURL(_ painting: Painting) -> URL {
-    return FileService.getDocumentsURL().appendingPathComponent("painting_\(painting.paintingId).png")
+    Services.imageService.saveImage(for: painting, image: image)
   }
   
   func saveData(_ painting: Painting) {

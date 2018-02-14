@@ -52,7 +52,7 @@ class PaintingController : UIViewController  {
       self.imageView.image = image
     }
     
-    self.imageView.image = Services.paintingService.image(painting)
+    self.imageView.image = Services.imageService.image(for: painting)
     self.imageView.sizeToFit()
     
     scrollView.contentSize = imageView.frame.size

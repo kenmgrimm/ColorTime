@@ -7,7 +7,7 @@ class PaintingsListController: UIViewController {
   @IBOutlet var collectionView: UICollectionView!
   
   // Must hold strong reference to data source as the collectionView.dataSource is weak..
-  private let collectionDataSource = PaintingDataSource()
+  private let collectionDataSource = PaintingsListDataSource()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,21 +49,6 @@ class PaintingsListController: UIViewController {
       let prompt = count > 0 ? nil : "Add some photos to paint"
       
       self.navigationItem.prompt = prompt
-    }
-  }
-}
-
-// Paintings list related
-extension PaintingsListController : UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    print(#function)
-    let paintingCell = cell as! PaintingCollectionViewCell
-    
-    let painting = Services.paintingService.find(paintingId: indexPath.row)!
-    let paintingViewModel = PaintingViewModel(painting)
-    
-    paintingViewModel.paintingImage.bind { (image) in
-      paintingCell.update(with: image)
     }
   }
 }

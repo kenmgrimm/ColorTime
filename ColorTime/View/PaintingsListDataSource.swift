@@ -1,6 +1,6 @@
 import UIKit
 
-class PaintingDataSource: NSObject, UICollectionViewDataSource {  
+class PaintingsListDataSource: NSObject, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return Services.paintingService.all().count
   }
