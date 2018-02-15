@@ -39,6 +39,39 @@ class PaintingFileService : PaintingServiceProtocol {
     return all().count
   }
   
+  func delete() {
+    let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
+    let encoder = JSONEncoder()
+    do {
+      let data = try encoder.encode([Painting]())
+      try data.write(to: url, options: [])
+    } catch {
+      fatalError(error.localizedDescription)
+    }
+    
+//    guard let painting = find(paintingId: paintingId) else {
+//      return
+//    }
+//
+//    let url = FileService.getDocumentsURL().appendingPathComponent("paintings.json")
+//    let encoder = JSONEncoder()
+//
+//    var paintings = all()
+//
+//    paintings.remove(painting)
+//
+//    do {
+//      let data = try encoder.encode(paintings)
+//      try data.write(to: url, options: [])
+//
+//      NotificationCenter.default.post(name:
+//        Notification.Name(rawValue: Painting.ColorUpdateNotification), object: self, userInfo: ["painting": painting])
+//
+//    } catch {
+//      fatalError(error.localizedDescription)
+//    }
+  }
+  
   func find(paintingId: Int) -> Painting? {
     return all().first(where: { (painting) -> Bool in
       painting.paintingId == paintingId

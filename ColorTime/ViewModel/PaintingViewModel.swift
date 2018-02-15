@@ -14,7 +14,7 @@ enum ImageError : Error {
 
 
 class PaintingViewModel {
-  private let FLOOD_TOLERANCE = 1000
+  private let FLOOD_TOLERANCE = 4000
   
   private var painting: Painting {
     didSet {

@@ -22,6 +22,15 @@ class ImageFileService : ImageServiceProtocol {
     return image
   }
   
+  func deleteImage(for painting: Painting) {
+    do {
+      try FileManager.default.removeItem(at: imageURL(for: painting))
+    }
+    catch {
+      
+    }
+  }
+  
   func saveImage(for painting: Painting, image: UIImage) {
     if let data = UIImagePNGRepresentation(image) {
       try? data.write(to: imageURL(for: painting))
