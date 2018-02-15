@@ -179,18 +179,18 @@
 		DF20F758202CB8D80013D318 /* ColorTime */ = {
 			isa = PBXGroup;
 			children = (
-				DF1F2E7020302F2E00BE6820 /* ViewModel */,
-				DF1F2E6D20302E4D00BE6820 /* Library */,
-				DFB57B19202E2F90008C5A17 /* Extension */,
-				DFB57B0B202E2DD3008C5A17 /* Service */,
-				DFB57B07202E2BEA008C5A17 /* Model */,
-				DF20F78C202D038B0013D318 /* View */,
-				DF20F787202D028A0013D318 /* Controller */,
 				DF20F759202CB8D80013D318 /* AppDelegate.swift */,
-				DF20F75D202CB8D80013D318 /* Main.storyboard */,
 				DF20F760202CB8D80013D318 /* Assets.xcassets */,
-				DF20F762202CB8D80013D318 /* LaunchScreen.storyboard */,
+				DF20F787202D028A0013D318 /* Controller */,
+				DFB57B19202E2F90008C5A17 /* Extension */,
 				DF20F765202CB8D80013D318 /* Info.plist */,
+				DF20F762202CB8D80013D318 /* LaunchScreen.storyboard */,
+				DF1F2E6D20302E4D00BE6820 /* Library */,
+				DF20F75D202CB8D80013D318 /* Main.storyboard */,
+				DFB57B07202E2BEA008C5A17 /* Model */,
+				DFB57B0B202E2DD3008C5A17 /* Service */,
+				DF20F78C202D038B0013D318 /* View */,
+				DF1F2E7020302F2E00BE6820 /* ViewModel */,
 			);
 			path = ColorTime;
 			sourceTree = "<group>";
@@ -225,13 +225,13 @@
 		DF20F78C202D038B0013D318 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DF20F78F202D198E0013D318 /* PaintingImageView.swift */,
 				DFB57B24202E4D15008C5A17 /* PaintingCollectionViewCell.swift */,
-				DF1F2E6B20302AAE00BE6820 /* PaletteWheelView.swift */,
-				DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */,
 				DF1F2E7720304B6600BE6820 /* PaintingControlsView.swift */,
+				DF20F78F202D198E0013D318 /* PaintingImageView.swift */,
 				DFB57B22202E4791008C5A17 /* PaintingsListDataSource.swift */,
 				DFEA7AA02034F14D00502E08 /* PaintingsListDelegate.swift */,
+				DF1F2E75203036B600BE6820 /* PaletteHistoryView.swift */,
+				DF1F2E6B20302AAE00BE6820 /* PaletteWheelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,11 +248,11 @@
 		DFB57B0B202E2DD3008C5A17 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */,
 				DFB57B17202E2F6B008C5A17 /* FileService.swift */,
-				DFB57B26202FA991008C5A17 /* Services.swift */,
-				DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */,
 				DFEA7A9E2034EA5B00502E08 /* ImageFileService.swift */,
+				DFB57B0C202E2DE9008C5A17 /* PaintingFileService.swift */,
+				DF1F2E73203035B100BE6820 /* PaletteHistoryDataSource.swift */,
+				DFB57B26202FA991008C5A17 /* Services.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";

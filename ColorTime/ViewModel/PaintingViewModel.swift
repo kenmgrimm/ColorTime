@@ -98,11 +98,25 @@ class PaintingViewModel {
     self.paintingImage.value = image.pbk_imageByReplacingColorAt(Int(point.x), Int(point.y), withColor: color, tolerance: FLOOD_TOLERANCE)
   }
   
+  // Don't fill if a line (darker color) is clicked
+  private func tooDark(_ color: UIColor) -> Bool {
+    let darknessThreshold: CGFloat = 0.3
+
+    let rgb = color.cgColor.components![0..<3]
+    
+    // All 3 rgb channels are below the darkness threshold
+    return rgb.filter({ (value: CGFloat) in
+      return value < darknessThreshold
+    }).count == 3
+  }
+
   private func floodFill(at point: CGPoint) {
     guard let image = self.paintingImage.value else { return }
-    let newColor = currentPaletteColor()
-    
     let currentPixelColor = image.getColorAt(Int(point.x), Int(point.y))
+    
+    guard !tooDark(currentPixelColor) else { return }
+
+    let newColor = currentPaletteColor()
     
     let paintPoint = PaintPoint(position: point, oldColor: currentPixelColor, newColor: newColor)
     addPaintingPoint(paintPoint)
