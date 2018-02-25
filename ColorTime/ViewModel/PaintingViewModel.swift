@@ -70,28 +70,16 @@ class PaintingViewModel {
 
   
   public func fetchImage(completion: @escaping (FetchImageResult) -> Void) {
-    // [unowned self] in  ?
     DispatchQueue.global(qos: .userInitiated).async { // async
-      guard let image = Services.imageService.image(for: self.painting) else { return }
+      guard let image = Services.imageService.image(for: self.painting) else { return }  // Slow operation
       
-      OperationQueue.main.addOperation {
+      OperationQueue.main.addOperation {  // On fetch image completion, run completion handler on _main_ thread (update UI)
         completion(.success(image))
       }
     }
   }
 
 // Image processing / floodfill
-
-//  private func floodFillSync(at point: CGPoint, completion: @escaping (PhotoLoadResult) -> Void) {
-//
-////    floodFill()
-////    self.paintingImage.value =
-//    OperationQueue.main.addOperation {
-//      completion(.success(UIImage()))
-//    }
-//  }
-  
-  
   private func floodFill(at point: CGPoint, color: UIColor) {
     guard let image = self.paintingImage.value else { return }
     
@@ -124,15 +112,13 @@ class PaintingViewModel {
     floodFill(at: point, color: newColor)
   }
   
+  // Draw click point for debugging purposes
   private func debugDrawPoint(_ x: CGFloat, _ y: CGFloat) {
     guard let image = self.paintingImage.value else { return }
     
     UIGraphicsBeginImageContext(image.size)
     image.draw(at: CGPoint.zero)
-    
-    // In case need to draw painting as overlay on top of base image
-    //      self.image?.draw(in: frame)
-    //      self.image?.draw(at: <#T##CGPoint#>, blendMode: <#T##CGBlendMode#>, alpha: <#T##CGFloat#>)
+
     let context = UIGraphicsGetCurrentContext()!
     
     context.setLineWidth(1.0)

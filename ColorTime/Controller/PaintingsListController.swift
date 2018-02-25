@@ -50,7 +50,8 @@ class PaintingsListController: UIViewController {
   }
 }
 
-// Camera processing / Photo-related
+//  Remove all of this from controller
+//  Camera processing / Photo-related
 extension PaintingsListController {
   @IBAction func takePhoto(_ sender: AnyObject) {
     guard let sourceType = firstSourceTypeAvailable() else {

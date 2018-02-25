@@ -27,7 +27,7 @@ class ImageFileService : ImageServiceProtocol {
       try FileManager.default.removeItem(at: imageURL(for: painting))
     }
     catch {
-      
+      print("Failed to remove image: \(imageURL(for: painting))")
     }
   }
   
@@ -51,7 +51,7 @@ class ImageFileService : ImageServiceProtocol {
     return cache.object(forKey: cacheKey)
   }
   
-  private func imageKey(for painting: Painting) -> NSString {
+  private func imageKey(for painting: Painting) -> NSString {  // Must be NSString as cache key is an object, not a value type
     return "painting_\(painting.paintingId)" as NSString
   }
   

@@ -98,7 +98,6 @@ class PaintingFileService : PaintingServiceProtocol {
       
       NotificationCenter.default.post(name:
         Notification.Name(rawValue: Painting.ColorUpdateNotification), object: self, userInfo: ["painting": painting])
-      
     } catch {
       fatalError(error.localizedDescription)
     }

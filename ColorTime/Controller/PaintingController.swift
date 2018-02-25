@@ -40,15 +40,15 @@ class PaintingController : UIViewController  {
     self.paletteHistoryDataSource = PaletteHistoryDataSource(paintingViewModel)
     paletteHistoryView.paintingViewModel = paintingViewModel
     paletteHistoryView.dataSource = self.paletteHistoryDataSource
-    paintingViewModel.colorPaletteHistory.bindAndFire { [unowned self] ([Int]) in
-      self.paletteHistoryView.reloadData()
+    paintingViewModel.colorPaletteHistory.bindAndFire { [weak self] ([Int]) in
+      self?.paletteHistoryView.reloadData()
     }
     
     self.imageView = createImageView(paintingViewModel)
     scrollView.addSubview(imageView)
     
-    paintingViewModel.paintingImage.bind { [unowned self] (image) in
-      self.imageView.image = image
+    paintingViewModel.paintingImage.bind { [weak self] (image) in
+      self?.imageView.image = image
     }
     
     self.imageView.image = Services.imageService.image(for: painting)
