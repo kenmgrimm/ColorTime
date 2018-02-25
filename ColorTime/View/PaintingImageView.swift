@@ -10,12 +10,7 @@ class PaintingImageView : UIImageView {
     
     self.paintingViewModel = paintingViewModel
     self.contentMode = .scaleAspectFit
-    
-    // here setting in constructor, controller also sets...
-    // Hack to size imageView correctly before correct image is loaded.  Spent a lot of time getting it to
-    //  size after fetching but it always caused problems sizeing within the scrollView
-//    self.image = Services.paintingService.image(painting)
-    
+
     isUserInteractionEnabled = true
     
     let tapRecognizer = UITapGestureRecognizer(target: self,
@@ -35,7 +30,6 @@ class PaintingImageView : UIImageView {
   }
 
   private func touchToImageCoord(_ touchPoint: CGPoint) -> CGPoint {
-    // This should be improved
     let zoomScale = (superview as! UIScrollView).zoomScale
     
     let x = image!.size.width * touchPoint.x * zoomScale / frame.size.width

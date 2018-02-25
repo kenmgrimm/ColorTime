@@ -1,4 +1,4 @@
-// Defines a property that allows registering listeners for updates
+// Defines a property that allows registering a listener for updates
 
 class Observable<T> {
   typealias Listener = (T) -> ()
